@@ -1,0 +1,12 @@
+<h1>Users#new</h1>
+<p>Find me in app/views/users/new.html.erb</p>
+
+<h3>Cadastro de usuário</h3>
+<%= form_with model: @user do |form| %>
+  <%= form.text_field :name, placeholder: "Digite seu belo nome aqui ;)" %>
+  <%= form.text_field :email, placeholder: "Digite seu e-mail" %>
+  <%= form.text_field :password, placeholder: "Sua senha" %>
+  <%= form.text_field :password, placeholder: "Confirme sua senha" %>
+
+  <%= form.submit %>
+<% end %>
