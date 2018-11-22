@@ -1,40 +1,59 @@
 <head>
     <meta charset="utf-8" />
     <title>dinnerdash - cadastro</title>
-    <%= stylesheet_link_tag "normalize.css" %>
-    <%= stylesheet_link_tag "cadastro.css" %>
 </head>
 
-<div class="container">
+<div class="screen">
     <div class="boxLeft">
-        <%= image_tag("sabri-tuzcu-365440.jpg", alt: "OMG! Não acredito que a imagem não carregou! :´(", class: 'imgFront')  %>
+        <%= image_tag("sabri-tuzcu-365440.jpg", 
+            alt: "OMG! Não acredito que a imagem não carregou! :´(", 
+            class: 'imgFront')  %>
     </div>
 
     <div class="boxRight">
-        <div class="boxRightInner">
-            <h1 class="title">dinnerdash</h1>
+        <div class="boxRightInner mx-auto">
+            <h1 class="title mb-5">dinnerdash</h1>
 
-            <%= form_with model: @user do |form| %>
-                <p class="formText">Nome</p>
-                <%= form.text_field :name, placeholder: "Digite seu belo nome aqui ;)" %>
+            <%= form_with class: "w-100", model: @user do |form| %>
 
-                <p class="formText">E-mail</p>
-                <%= form.text_field :email, placeholder: "Digite seu e-mail" %>
-
-                <p class="formText">Senha</p>
-                <%= form.password_field :password, placeholder: "Sua senha" %>
-
-                <p class="formText">Confirme sua senha</p>
-                <%= form.password_field :password, placeholder: "Confirme sua senha" %>
+                <div class="form-group">                                
+                    <label for="name" class="formText">Nome</label>
+                    <%= form.text_field :name, 
+                                        placeholder: "Digite seu belo nome aqui ;)", 
+                                        id: "name", 
+                                        class: "form-control"%>
+                </div>
+                    
+                <div class="form-group">
+                    <label for="signup_email" class="formText">E-mail</label>
+                    <%= form.text_field :email, 
+                                        placeholder: "example@website.com", 
+                                        id: "signup_email", 
+                                        class: "form-control"%>
+                </div>
+                    
+                <div class="form-group">
+                    <label for="signup_password" class="formText">Senha</label>
+                    <%= form.password_field :password, 
+                                            placeholder: "Sua senha",
+                                            id: "signup_password", 
+                                            class: "form-control"%>
+                </div>
+                    
+                <div class="form-group">
+                    <label for="signup_new_password" class="formText">Confirme sua senha</label>
+                    <%= form.password_field :password, 
+                                            placeholder: "Confirme sua senha",
+                                            id: "signup_new_password", 
+                                            class: "form-control"%>
+                </div>
                 
-                <%= form.submit "cadastrar"%>
+                <%= form.submit "cadastrar", class: "btn btn-success w-100 mt-1 mb-4 p-2" %>
+            
             <% end %>
 
-            <p class="hasAccount">Já possui conta?</p>
-            <a href="login.html" class="signInButton">fazer login</a>
-
-            <h1>Users#new</h1>
-            <p>Find me in app/views/users/new.html.erb</p>
+            <p class="hasAccount align-self-start w-100 pt-4">Já possui conta?</p>
+            <a href="#" class="btn btn-outline-success w-100 p-2">fazer login</a> <!-- Sera modificado --> 
         </div>
     </div>
 </div>
