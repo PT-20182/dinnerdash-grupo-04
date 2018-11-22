@@ -2,19 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-@font-face {
-    font-family: fontAmaranth;
-    src: url(https://fonts.gstatic.com/s/amaranth/v8/KtkuALODe433f0j1zMnFHdA.woff2);
-}
-
-* {
-    box-sizing: border-box;
-}
-
-html {
-    font-family: Ubuntu, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
 .screen {
     display: flex;
     width: 100%;
