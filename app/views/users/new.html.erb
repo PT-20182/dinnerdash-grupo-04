@@ -1,12 +1,40 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<head>
+    <meta charset="utf-8" />
+    <title>dinnerdash - cadastro</title>
+    <%= stylesheet_link_tag "normalize.css" %>
+    <%= stylesheet_link_tag "cadastro.css" %>
+</head>
 
-<h3>Cadastro de usuário</h3>
-<%= form_with model: @user do |form| %>
-  <%= form.text_field :name, placeholder: "Digite seu belo nome aqui ;)" %>
-  <%= form.text_field :email, placeholder: "Digite seu e-mail" %>
-  <%= form.text_field :password, placeholder: "Sua senha" %>
-  <%= form.text_field :password, placeholder: "Confirme sua senha" %>
+<div class="container">
+    <div class="boxLeft">
+        <%= image_tag("sabri-tuzcu-365440.jpg", alt: "OMG! Não acredito que a imagem não carregou! :´(", class: 'imgFront')  %>
+    </div>
 
-  <%= form.submit %>
-<% end %>
+    <div class="boxRight">
+        <div class="boxRightInner">
+            <h1 class="title">dinnerdash</h1>
+
+            <%= form_with model: @user do |form| %>
+                <p class="formText">Nome</p>
+                <%= form.text_field :name, placeholder: "Digite seu belo nome aqui ;)" %>
+
+                <p class="formText">E-mail</p>
+                <%= form.text_field :email, placeholder: "Digite seu e-mail" %>
+
+                <p class="formText">Senha</p>
+                <%= form.password_field :password, placeholder: "Sua senha" %>
+
+                <p class="formText">Confirme sua senha</p>
+                <%= form.password_field :password, placeholder: "Confirme sua senha" %>
+                
+                <%= form.submit "cadastrar"%>
+            <% end %>
+
+            <p class="hasAccount">Já possui conta?</p>
+            <a href="login.html" class="signInButton">fazer login</a>
+
+            <h1>Users#new</h1>
+            <p>Find me in app/views/users/new.html.erb</p>
+        </div>
+    </div>
+</div>
