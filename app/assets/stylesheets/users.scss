@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@font-face {
+    font-family: fontAmaranth;
+    src: url(https://fonts.gstatic.com/s/amaranth/v8/KtkuALODe433f0j1zMnFHdA.woff2);
+}
+
 * {
     box-sizing: border-box;
 }
@@ -21,89 +26,39 @@ html {
     height: 100%;
 }
 
-.imgFront {
+.imgFront { // Qual a melhor forma de mexer com essa imagem?
     width: 100%;
     height: 100%;
 }
 
 .boxRight {
-    display: flex;
     width: 30%;
     height: 100%;
-    justify-content: center;
 }
 
 .boxRightInner {
+    height: 100%;
+    width: 75%;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 60%;
 }
 
 .title {
     align-self: flex-start;
     font-family: fontAmaranth, sans-serif;
-    color: #6b6b6b;
-}
-
-form {
-    width: 100%;
-    margin: 5% 0;
+    color: #555;
 }
 
 .formText {
-    color: #868686;
-}
-
-input[type=text], input[type=password] {
-    width: 100%;
-    padding: 0.5em;
-    border: 1px solid #cecece;
-    border-radius: 4px;
-}
-
-input[type=submit] {
-    width: 100%;
-    height: 2.75em;
-    margin-top: 5%;
-    border: 0;
-    border-radius: 4px;
-    background-color: #39cc6c;
-    color: #ffffff;
-    text-align: center;
-    cursor: pointer;
-}
-
-input[type=submit]:hover {
-    background-color: #29bc5c;
+    color: #666;
 }
 
 .hasAccount {
-    width: 100%;
-    padding: 5% 0 1% 0;
-    border-top: 1px solid #cecece;
-    color: #6b6b6b;
-    font-family: Ubuntu, 'Open Sans', sans-serif;
-}
+    border-top: 1px solid #ccc;
 
-.signInButton {
-    width: 100%;
-    border: 1px solid #39cc6c;
-    border-radius: 4px;
-    color: #39cc6c;
-    text-align: center;
-    padding: 2.5%;
-    text-decoration: none;
-}
-
-.signInButton:hover {
-    border-color: #29bc5c;
-    background-color: #29bc5c;
-    color: #ffffff;
-}
-
-@font-face {
-    font-family: fontAmaranth;
-    src: url(https://fonts.gstatic.com/s/amaranth/v8/KtkuALODe433f0j1zMnFHdA.woff2);
+    font-size: 1.2em;
+    color: #666;
 }
