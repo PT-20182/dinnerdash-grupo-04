@@ -1,3 +1,51 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.screen {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.boxLeft {
+    width: 70%;
+    height: 100%;
+}
+
+.imgFront { // Qual a melhor forma de mexer com essa imagem?
+    width: 100%;
+    height: 100%;
+}
+
+.boxRight {
+    width: 30%;
+    height: 100%;
+}
+
+.boxRightInner {
+    height: 100%;
+    width: 75%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    align-self: flex-start;
+    font-family: fontAmaranth, sans-serif;
+    color: #555;
+}
+
+.formText {
+    color: #666;
+}
+
+.hasAccount {
+    border-top: 1px solid #ccc;
+
+    font-size: 1.2em;
+    color: #666;
+}
