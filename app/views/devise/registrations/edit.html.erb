@@ -1,3 +1,88 @@
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>dinnerdash - meu perfil</title>
+</head>
+
+<body>
+  <div class="screen">
+    <div class="containerImg imgTop">
+        <div class="containerTopText">
+            <nav class="navbar navbar-expand-lg">
+                <a class="navbar-brand title" href="#">dinnerdash</a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link pagesText" href="#">perfil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pagesText" href="#">sair </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="descriptionText">
+                <h1 id="meuPerfil">Meu perfil</h1>
+                <h3>Atualizar meus dados pessoas e senha</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="editUserBox">
+        <div class="editUserMidBox">
+            <%= form_for( resource, as: resource_name, url: registration_path(resource_name),
+                          html: { method: :put }) do |form| %>
+                <div class="form-row">
+                    <div class="col">
+                        <label for="inputNome">Nome</label>
+                        <%= form.text_field :name, autocomplete: "name", autofocus: true,
+                                            class: "form-control w-100" %>
+                        
+                        <label class="mt-4" for="inputPsw">
+                          Nova senha (deixe em branco caso não queira alterar)
+                        </label>
+
+                        <%= form.password_field  :password, autocomplete: "new-password",
+                                              class: "form-control w-100" %>
+                        <% if @minimum_password_length %>
+                          <br />
+                          <em><%= @minimum_password_length %> Mínimo de caracteres:</em>
+                        <% end %>
+                        
+                        <label class="mt-4" for="inputCurrentPsw">Senha atual, por questão de segurança</label>
+                        <%= form.password_field  :current_password, autocomplete: "current-password",
+                                              class: "form-control w-100" %>
+                    </div>
+
+                    <div class="col">
+                        <label for="inputEmail">E-mail</label>
+                        <%= form.email_field :email, autocomplete: "email", class: "form-control w-100" %>
+                        
+                        <label class="mt-4" for="pswConf">Confirme sua nova senha</label>
+                        <%= form.password_field :password_confirmation, autocomplete: "new-password",
+                                                class: "form-control w-100" %>
+
+                        <%= form.submit "atualizar meu perfil", class: "btn btn-success w-25 mt-4" %>
+                    </div>
+
+                    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                    <% end %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+  </div>
+</body>
+
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -41,3 +126,4 @@
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+
