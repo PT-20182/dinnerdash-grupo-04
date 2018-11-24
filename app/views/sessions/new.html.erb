@@ -1,0 +1,45 @@
+<head>
+    <meta charset="utf-8" />
+    <title>dinnerdash - login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<div class="screen">
+    <div class="boxLeft">
+        <%= image_tag("sabri-tuzcu-365440.jpg",
+            alt: "OMG! Não acredito que a imagem não carregou! :´(",
+            class: 'imgFront') %>
+    </div>
+
+    <div class="boxRight">
+        <div class="boxRightInner mx-auto">
+            <h1 class="title mb-5">dinnerdash</h1>
+
+            <%= form_for( :session , url: login_path, html: {class: "w-100"} ) do |form| %>
+                <div class="form-group">
+                    <label for="signup_email" class="formText">E-mail</label>
+                    <%= form.email_field :email, 
+                                         placeholder: "example@website.com", 
+                                         id: "signup_email", 
+                                         class: "form-control" %>
+                </div>
+
+                <div class="form-group">
+                    <label for="signup_password" class="formText">Senha</label>
+                    <%= form.password_field :password, 
+                                            placeholder: "Sua senha",
+                                            id: "signup_password", 
+                                            class: "form-control"%>
+                </div>
+
+                <%= form.submit "fazer login", class: "btn btn-success w-100 mt-1 mb-4 p-2" %>
+            <% end %>
+
+            <p class="noAccount">Não possui conta?</p>
+            <a href="cadastro.html" class="signUpButton">fazer meu cadastro</a>
+        </div>
+    </div>
+</div>
+
+<h1>Sessions#new</h1>
+<p>Find me in app/views/sessions/new.html.erb</p>
