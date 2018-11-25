@@ -8,8 +8,9 @@
     <% if current_user.admin != 0 %>
         <%= link_to  "Usuarios", users_all_path %>
     <% end %>
+    
+    <%= link_to  "Editar meu Usuario", edit_user_registration_path %>
 <% else %>
     <%= link_to  "Entrar", new_user_session_path %>
     <%= link_to  "Cadastrar", new_user_registration_path %>
 <% end %>
-
