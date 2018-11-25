@@ -2,7 +2,7 @@
 <p>Find me in app/views/home/index.html.erb</p>
 
 <% if user_signed_in? %>
-    <%= current_user.email %>
+    <%= current_user.name %>
     <%= link_to  "Sair", destroy_user_session_path, method: :delete %>
 <% else %>
     <%= link_to  "Entrar", new_user_session_path %>
