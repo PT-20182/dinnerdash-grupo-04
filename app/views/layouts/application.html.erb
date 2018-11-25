@@ -10,8 +10,13 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+
+    <% if notice %>
+    <p class="notice"><%= notice %></p> <!-- Shows Devise Notices only when something happens -->
+    <% end %>
+    <% if alert %>
+    <p class="alert"><%= alert %></p> <!-- Shows Devise Alerts only when something happens -->
+    <% end %>
 
     <%= yield %>
   </body>

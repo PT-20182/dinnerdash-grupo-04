@@ -4,6 +4,10 @@
 <% if user_signed_in? %>
     <%= current_user.name %>
     <%= link_to  "Sair", destroy_user_session_path, method: :delete %>
+    
+    <% if current_user.admin != 0 %>
+        <%= link_to  "Usuarios", users_all_path %>
+    <% end %>
 <% else %>
     <%= link_to  "Entrar", new_user_session_path %>
     <%= link_to  "Cadastrar", new_user_registration_path %>
