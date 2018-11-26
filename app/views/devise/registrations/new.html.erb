@@ -14,17 +14,17 @@
         <div class="boxRightInner mx-auto">
             <h1 class="title mb-5">dinnerdash</h1>
 
-            <%= form_for(resource, :html => {:class => 'w-100'}, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:class => 'w-100'} ) do |f| %>
               <%= devise_error_messages! %>
 
               <div class="field form-group">                                
-                  <%= f.label :name, class: 'formText' %>
+                  <%= f.label :name, class: 'formText' %><br />
                   <%= f.text_field :name, 
-                                      placeholder: "Digite seu belo nome aqui ;)",
-                                      autofocus: true, 
-                                      autocomplete: "name", 
-                                      id: "name", 
-                                      class: "form-control" %>
+                                    placeholder: "Digite seu belo nome aqui ;)",
+                                    autofocus: true, 
+                                    autocomplete: "name", 
+                                    id: "name", 
+                                    class: "form-control" %>
               </div>
 
               <div class="field form-group">
