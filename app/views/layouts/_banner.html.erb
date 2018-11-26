@@ -1,0 +1,24 @@
+<head>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<div class="bannerbackoff">
+    <h4>dinnerdash</h4>
+    <div class="alternbackoff">
+        <a href="#" class="alternbackoffselect">backoffice</a>
+        <a href="#">perfil</a>
+        <a href="#">sair</a>
+    </div>
+    <div class="bannerbackofftitle">
+        <h1>Backoffice</h1>
+        <h2>Gerencie pedidos, refeições e mais</h2>
+    </div>
+
+</div>
+
+<div class="navbarbackoff">
+    <%= link_to "Pedidos", meals_path %>
+    <%= link_to "Usuários", meals_path %>
+    <%= link_to "Refeições", meals_path, :class => current_class?(meals_path)  %>
+    <%= link_to "Categorias de Refeição", meal_categories_path %>
+</div>

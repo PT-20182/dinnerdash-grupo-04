@@ -1,0 +1,10 @@
+<%= render 'layouts/banner' %>
+
+<h3>Update Meal Category Details</h3>
+<%= form_with model: @meal_category do |form| %>
+
+    <%= form.text_field :name, placeholder: "name" %>
+
+    <%= form.submit %>
+
+<% end %>
