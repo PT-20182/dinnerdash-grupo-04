@@ -27,8 +27,10 @@ ActiveRecord::Schema.define(version: 2018_11_24_203353) do
     t.string "price"
     t.binary "image"
     t.string "available"
+    t.bigint "meal_category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["meal_category_id"], name: "index_meals_on_meal_category_id"
   end
 
 end
