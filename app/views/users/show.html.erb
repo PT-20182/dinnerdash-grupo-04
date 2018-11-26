@@ -2,5 +2,5 @@
 <p>Find me in app/views/users/show.html.erb</p>
 <h1><%= @user.name %></h1>
 <h4><%= @user.email %></h4>
-<%= link_to 'Editar', edit_user_path(@user), method: 'get' %>
-<%= link_to 'Remover usuário', @user, method: :delete, data: { confirm: 'Voccê está certo disso?' } %>
+<%= button_to 'Editar', edit_user_registration_path(@user), method: 'get' %>
+<%= button_to 'Remover', user_registration_path(@user), method: 'delete', data: { confirm: 'Você está certo disso?'} %>
