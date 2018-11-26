@@ -8,8 +8,8 @@
             <a href="#"><h1 class="h1_logo">dinnerdash</h1></a>
             
             <div class="ml-auto d-flex justify-content-around">
-                <a href="#">perfil</a>
-                <a href="#">sair</a>
+                <a href="#">perfil</a> <!----------------------------------------------------- Será modificado -->
+                <%= link_to  "Sair", destroy_user_session_path, method: :delete %>
             </div>
         </div>
         
@@ -45,8 +45,7 @@
                 <%= f.label :nova_senha %> <i>(deixe em branco caso não queira alterar)</i><br />
                 <%= f.password_field :password, autocomplete: "new-password", placeholder: "Nova Senha", class: "form-control" %>
                 <% if @minimum_password_length %>
-                <br />
-                <em>No mínimo <%= @minimum_password_length %> caracteres.</em>
+                <small>No mínimo <%= @minimum_password_length %> caracteres.</small>
                 <% end %>
             </div>
             <div class="field form-group w-50 m-2">
@@ -63,7 +62,7 @@
         <footer class="bs-footer container d-flex justify-content-between align-items-center">
         
             <span class="cpy">dinnerdash | todos os direitos reservados</span>
-            <span class="dev">desenvolvido por Gustavo Luigi</span>
+            <span class="dev">desenvolvido por Grupo 4</span>
 
         </footer>
     </div>
