@@ -1,12 +1,8 @@
 class MealCategoriesController < ApplicationController
-  before_action :current_meal_category, only: [:show, :edit, :update, :destroy]
+  before_action :current_meal_category, only: [:edit, :update, :destroy]
 
   def index
       @meal_categories = MealCategory.all
-  end
-
-  def show
-
   end
 
   def new
@@ -26,7 +22,7 @@ class MealCategoriesController < ApplicationController
   def update
       @meal_category.update(meal_category_params)
 
-      redirect_to meal_category_path(@meal_category)
+      redirect_to meal_categories_path
   end
 
   def destroy
