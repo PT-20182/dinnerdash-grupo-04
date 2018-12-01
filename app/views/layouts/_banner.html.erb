@@ -1,24 +1,30 @@
-<head>
-    <%= stylesheet_link_tag "meals" %>
+    <head>
+    <%= stylesheet_link_tag "bannerBackoff" %>
 </head>
 
-<div class="bannerbackoff">
-    <h4>dinnerdash</h4>
-    <div class="alternbackoff">
-        <a href="#" class="alternbackoffselect">backoffice</a>
-        <a href="#">perfil</a>
-        <a href="#">sair</a>
+<div class="bannerbackoff text-white">
+    <div class="h-100 container d-flex flex-column justify-content-between">
+        <div class="mt-4 d-flex flex-row justify-content-between align-items-center">
+            <h1 class="h1_logo">dinnerdash</h1> <!----------------------------sera modificado-->
+            
+            <div class="d-flex justify-content-between">
+                <a href="#" class="text-warning font-weight-bold">backoffice</a> <!---------------------------------sera modificado-->
+                <a href="#" class="ml-4 text-white">perfil</a> <!-------------------------------------sera modificado-->
+                <a href="#" class="ml-4 text-white">sair</a>  <!--------------------------------------sera modificado-->
+            </div>
+        </div>
+        <div class="mb-4">
+            <h1 class="h1_title">Backoffice</h1>
+            <h3 class="h3_title">Gerencie pedidos, refeições e mais</h3>
+        </div>
     </div>
-    <div class="bannerbackofftitle">
-        <h1>Backoffice</h1>
-        <h2>Gerencie pedidos, refeições e mais</h2>
-    </div>
-
 </div>
 
 <div class="navbarbackoff">
-    <%= link_to "Pedidos", meals_path %>
-    <%= link_to "Usuários", meals_path %>
-    <%= link_to "Refeições", meals_path, :class => current_class?(meals_path)  %>
-    <%= link_to "Categorias de Refeição", meal_categories_path %>
+    <div class="container py-2">
+        <%= link_to "Pedidos", meals_path %>
+        <%= link_to "Usuários", meals_path, class: "ml-4" %>
+        <%= link_to "Refeições", meals_path, :class => current_class?(meals_path), class: "ml-4" %>
+        <%= link_to "Categorias de Refeição", meal_categories_path, class: "ml-4" %>
+    </div>
 </div>
