@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Dinnerdash</title>
+    <title>MealApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-
     <% if notice %>
-    <p class="notice"><%= notice %></p> <!-- Shows Devise Notices only when something happens -->
+        <p class="alert alert-success"><%= notice %></p>
     <% end %>
     <% if alert %>
-    <p class="alert"><%= alert %></p> <!-- Shows Devise Alerts only when something happens -->
+        <p class="alert alert-danger"><%= alert %></p>
     <% end %>
-
     <%= yield %>
   </body>
 </html>

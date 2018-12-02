@@ -1,0 +1,12 @@
+<%= render 'layouts/banner' %>
+
+
+<h1><%= @meal.name %></h1>
+<h4>"<%= @meal.description %>"</h4>
+<h1><%= @meal.price %></h1>
+<h1><%= @meal.image %></h1>
+<h1><%= @meal.available %></h1>
+
+<%= link_to 'Remove', @meal, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<%= render 'layouts/footer' %>

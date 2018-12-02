@@ -1,0 +1,64 @@
+<%= render 'layouts/banner' %>
+
+<div class="mealtable" id="start">
+
+  <% if Meal.count == 0 %>
+    <h3 class="">Comece agora a criar suas refeições!</h3>
+    <div class="breaklineRefeicoes"></div>
+  <% end %>
+
+  <% @meals.in_groups_of(4, false).each do |group| %>
+
+  <div class="linhasRefeicoes">
+      <div class="colunasRefeicoes">
+
+          <% group.each do |item| %>
+          <div class="cardsRefeicoes">
+              <div class="imagemRefeicoes">
+                  <%= item.image %>
+                  <div class="nomeRefeicoes">
+                      <%= item.name %>
+
+                  </div>
+              </div>
+              <div class="CardbottomRefeicoes">
+                  <div class="descricaoRefeicoes">
+                      <%= item.description %>
+
+                  </div>
+                  <div class="precoRefeicoes">
+                      R$ <%= item.price %> por porção
+
+                  </div>
+                  <div class="botoesCardRefeicoes">
+                      <%= button_to 'editar', edit_meal_path(item), method: 'get', class: 'botoesCardEditar' %>
+                      <%= button_to 'excluir', meal_path(item), method: 'delete', data: { confirm: 'Você tem certeza?' }, class: 'botoesCardExcluir' %>
+                  </div>
+
+              </div>
+          </div>
+          <% end %>
+      </div>
+  </div>
+  <% end %>
+</div>
+<div class="paginacaoLinha">
+    <%= button_to "nova refeição", new_meal_path, method: 'get', class: 'novaRefeicaoBotao' %>
+    <div class="paginacaoRefeicoes">
+        <%= link_to "&laquo;".html_safe,
+            if @page > 0 then meals_path(page: @page-1, anchor: "start") end %>
+
+        <% for i in 0..Meal.count/8.ceil %>
+            <%=  link_to i+1, meals_path(page: i, anchor: "start"), class: "active" if current_class?(meals_path(page: @page))  %>
+        <% end %>
+
+        <%= link_to "&raquo;".html_safe,
+            if @page < Meal.count/8.ceil - 1 then
+                meals_path(page: @page+1, anchor: "start")
+            else
+                meals_path(page: @page, anchor: "start") end %>
+
+    </div>
+</div>
+
+<%= render 'layouts/footer' %>

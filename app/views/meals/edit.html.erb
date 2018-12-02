@@ -1,0 +1,16 @@
+<%= render 'layouts/banner' %>
+
+
+<h3>Editar refeição</h3>
+<%= form_with model: @meal do |form| %>
+  <%= form.text_field :name, placeholder: "name" %>
+  <%= form.text_field :description, placeholder: "description" %>
+  <%= form.text_field :price, placeholder: "price" %>
+  <%= form.text_field :image, placeholder: "image" %>
+  <%= form.check_box :available, placeholder: "available" %>
+    <%= label_tag(:available, "Esta refeição não estará disponível no cardápio") %>
+
+  <%= form.submit %>
+<% end %>
+
+<%= render 'layouts/footer' %>

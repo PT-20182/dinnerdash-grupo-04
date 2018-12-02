@@ -1,0 +1,52 @@
+<%= render 'layouts/banner' %>
+
+<div class="refeicoesBody">
+    <h3>Nova Refeição</h3>
+    <div class="breaklineRefeicoes"></div>
+
+    <%= form_with model: @meal do |form| %>
+
+
+    <div class="linhasNewRefeicoes">
+
+        <div class="tagFormRefeicoes">
+            <%= label_tag(:name, "Nome") %>
+            <%= form.text_field :name, class: 'formRefeicoesInput' %>
+        </div>
+
+        <div class="tagFormRefeicoes">
+
+        </div>
+
+    </div>
+
+    <div class="tagFormRefeicoesDescricao">
+        <%= label_tag(:description, "Descrição") %>
+        <%= form.text_area :description, cols: '10', rows: '10', class: 'formRefeicoesInputDescricao' %>
+
+    </div>
+
+    <div class="linhasNewRefeicoes">
+
+        <div class="tagFormRefeicoes">
+            <%= label_tag(:price, "Preço") %>
+            <%= form.text_field :price, class: 'formRefeicoesInput' %>
+        </div>
+
+        <div class="tagFormRefeicoes">
+            <%= label_tag(:image, "Foto") %>
+            <%= form.file_field :image, placeholder: "Escolher arquivo..." %>
+        </div>
+
+    </div>
+
+    <%= form.check_box :available, placeholder: "available" %>
+        <%= label_tag(:available, "Esta refeição não estará disponível no cardápio") %>
+
+    <%= form.submit %>
+<% end %>
+
+</div>
+
+
+<%= render 'layouts/footer' %>
