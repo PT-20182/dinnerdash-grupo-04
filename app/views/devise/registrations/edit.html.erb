@@ -1,18 +1,12 @@
 <head>
     <%= stylesheet_link_tag "users_edit" %>
 </head>
+
 <body>
     <div class="cima_perfil_img"></div>
     <div class="cima_perfil d-flex flex-column">
-        <div class="navbar container d-flex align-items-center">
-            <%= link_to  "dinnerdash", root_path(), class: "h1_logo" %>
-            
-            <div class="ml-auto d-flex justify-content-around">
-                <a href="#">perfil</a> <!----------------------------------------------------- Será modificado -->
-                <%= link_to  "Sair", destroy_user_session_path, method: :delete %>
-            </div>
-        </div>
-        
+        <%= render  "layouts/logo" %>
+
         <div class="container mt-auto mytitle">
             <h1>Seu Perfil</h1>
             <h4>Atualize os seus dados pessoais e senha.</h4>
@@ -58,14 +52,7 @@
         </div>
     <% end %>
     
-    <div class="footer">
-        <footer class="bs-footer container d-flex justify-content-between align-items-center">
-        
-            <span class="cpy">dinnerdash | todos os direitos reservados</span>
-            <span class="dev">desenvolvido por Grupo 4</span>
-
-        </footer>
-    </div>
+    <%= render  "layouts/footer" %>
 </body>
 
 

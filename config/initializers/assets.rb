@@ -16,6 +16,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # Adding additional assets for using in some layouts
 Rails.application.config.assets.precompile += %w( bannerBackoff.css )
 Rails.application.config.assets.precompile += %w( footer.css )
+Rails.application.config.assets.precompile += %w( logo.css )
 
 # CSS stylesheets
 Rails.application.config.assets.precompile += %w( users_edit.css )

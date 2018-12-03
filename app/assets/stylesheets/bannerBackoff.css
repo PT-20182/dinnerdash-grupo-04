@@ -9,8 +9,13 @@
     height: 55vh;
 }
 
-.h1_logo {
+.logo {
     font-size: 1.8em;
+    text-decoration: none;
+}
+
+.logo:hover {
+    text-decoration: none;
 }
 
 .h1_title {

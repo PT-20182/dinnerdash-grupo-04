@@ -18,13 +18,6 @@
     height: 100%;
 }
 
-.containerImg {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 59%;
-}
-
 .imgTop {
     background: #dddddd url("restaurant.jpeg") no-repeat center;
     background-size: cover;
@@ -53,28 +46,14 @@
     align-items: center;
 }
 
-.title {
+.title, a.title:hover {
     align-self: flex-start;
+    
+    font-size: 2.7em;
     font-family: fontAmaranth, sans-serif;
     color: #555;
-}
 
-a.title {
-    font-size: xx-large;
-    color: #ffffff;
-}
-
-a.title:hover {
-    color: #ffffff;
-}
-
-.pagesText {
-    color: #ffffff;
-    font-size: medium;
-}
-
-.pagesText:hover {
-    color: #ffffff;
+    text-decoration: none;
 }
 
 .formText {
@@ -85,28 +64,4 @@ a.title:hover {
     border-top: 1px solid #ccc;
     font-size: 1.2em;
     color: #666;
-}
-
-.descriptionText {
-    font-family: Roboto;
-    padding-bottom: 1.5em;
-    color: #ffffff;
-}
-
-h1#meuPerfil {
-    font-size: 425%;
-}
-
-.editUserBox {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-.editUserMidBox {
-    width: 90%;
-    height: auto;
-    padding-top: 5%;
-    color: #707070;
-    font-size: small;
 }

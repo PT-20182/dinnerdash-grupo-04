@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :meals
 
   get 'users/all'
-  get 'users/show'
+  get 'users/perfil'
   
   get 'home/index'
   

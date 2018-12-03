@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MealApp</title>
+    <title>dinnerdash - grupo 4</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -17,6 +16,7 @@
     <% if alert %>
         <p class="alert alert-danger"><%= alert %></p>
     <% end %>
+    
     <%= yield %>
   </body>
 </html>

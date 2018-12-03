@@ -1,18 +1,11 @@
-    <head>
+<head>
     <%= stylesheet_link_tag "bannerBackoff" %>
 </head>
 
 <div class="bannerbackoff text-white">
     <div class="h-100 container d-flex flex-column justify-content-between">
-        <div class="mt-4 d-flex flex-row justify-content-between align-items-center">
-            <h1 class="h1_logo">dinnerdash</h1> <!----------------------------sera modificado-->
-            
-            <div class="d-flex justify-content-between">
-                <a href="#" class="text-warning font-weight-bold">backoffice</a> <!---------------------------------sera modificado-->
-                <a href="#" class="ml-4 text-white">perfil</a> <!-------------------------------------sera modificado-->
-                <a href="#" class="ml-4 text-white">sair</a>  <!--------------------------------------sera modificado-->
-            </div>
-        </div>
+        <%= render  "layouts/logo" %>
+        
         <div class="mb-4">
             <h1 class="h1_title">Backoffice</h1>
             <h3 class="h3_title">Gerencie pedidos, refeições e mais</h3>
