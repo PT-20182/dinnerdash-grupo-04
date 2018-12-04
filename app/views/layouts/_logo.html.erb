@@ -6,10 +6,15 @@
     <%= link_to  "dinnerdash", root_path(), class: "h1_logo" %>
     
     <div class="ml-auto d-flex justify-content-around">
-        <% if current_user.admin %>
-            <%= link_to  "backoffice", meals_path, class: "text-warning font-weight-bold" %>
+        <% if user_signed_in? %>
+            <% if current_user.admin %>
+                <%= link_to  "backoffice", meals_path, class: "text-warning font-weight-bold" %>
+            <% end %>
+            <%= link_to  "perfil", edit_user_registration_path %>
+            <%= link_to  "Sair", destroy_user_session_path, method: :delete %>
+        <% else %>
+            <%= link_to  "Entrar", new_user_session_path %>
+            <%= link_to  "Cadastrar", new_user_registration_path %>
         <% end %>
-        <%= link_to  "perfil", users_perfil_path %>
-        <%= link_to  "Sair", destroy_user_session_path, method: :delete %>
     </div>
 </div>

@@ -1,14 +1,15 @@
 
+<%= render  "layouts/banner" %>
+
 <table>
-<ul>
-    <% @users.each do |user| %>
-        <tr>
-        <td><%= user.name %></td>
-        <td><%= button_to 'Editar', edit_user_registration_path(user), method: 'get' %> </td>
-        <td><%= button_to 'Remover', user_registration_path(user), method: 'delete', data: { confirm: 'Você está certo disso?'} %></td>
-    <% end %>
-</ul>
+    <ul>
+        <% @users.each do |user| %>
+            <tr>
+            <td><%= user.name %></td>
+            <td><%= button_to 'Editar', edit_user_registration_path(user), method: 'get' %> </td>
+            <td><%= button_to 'Remover', user_registration_path(user), method: 'delete', data: { confirm: 'Você está certo disso?'} %></td>
+        <% end %>
+    </ul>
 </table>
 
 <%= link_to "Cadastrar novo usuário", new_user_registration_path %>
-<%= link_to  "HOME", root_path %>
