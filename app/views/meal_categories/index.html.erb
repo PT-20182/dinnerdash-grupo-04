@@ -1,0 +1,14 @@
+<%= render 'layouts/banner' %>
+
+<table>
+    <tr>
+        <% @meal_categories.each do |meal_category| %>
+            <td><%= link_to meal_category.name, meal_category_path(meal_category) %></td>
+            <td><%= button_to 'Edit', edit_meal_category_path(meal_category), method: 'get' %></td>
+            <td><%= button_to 'Remove', meal_category_path(meal_category), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+    </tr>
+
+</table>
+
+<%= link_to "Add a New Meal Category", new_meal_category_path %>

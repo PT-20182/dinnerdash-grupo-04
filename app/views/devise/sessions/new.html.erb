@@ -4,15 +4,11 @@
 </head>
 
 <div class="screen">
-    <div class="boxLeft">
-        <%= image_tag("sabri-tuzcu-365440.jpg",
-            alt: "OMG! Não acredito que a imagem não carregou! :´(",
-            class: 'imgFront') %>
-    </div>
+    <%= render  "layouts/imgRegisSessions" %>
 
     <div class="boxRight">
         <div class="boxRightInner mx-auto">
-            <h1 class="title mb-5">dinnerdash</h1>
+            <%= link_to  "dinnerdash", root_path, class: "title mb-5" %>
 
             <%= form_for( resource, as: resource_name,
                           url: session_path(resource_name), html: {class: "w-100"} ) do |form| %>
