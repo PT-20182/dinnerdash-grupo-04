@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :current_user_by_id, only: [:edit, :update, :destroy]
+  before_action :check_user_admin
 
   def index
     @users = User.all

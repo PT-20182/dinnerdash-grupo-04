@@ -10,4 +10,10 @@ class ApplicationController < ActionController::Base
         ## To permit attributes while editing a registration (app/views/devise/registrations/edit.html.erb)
         devise_parameter_sanitizer.permit(:account_update, keys: [:name, :admin])
     end
+
+    def check_user_admin # Falta mandar alerta de "Acesso Bloqueado!"
+        unless user_signed_in? && current_user.admin
+            redirect_to :root
+        end
+    end
 end
