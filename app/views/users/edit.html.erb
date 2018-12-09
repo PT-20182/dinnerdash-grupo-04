@@ -1,9 +1,36 @@
-<h3>Update User Details</h3>
-<%= form_with model: @user do |form| %>
-    <%= form.text_field :name, placeholder: "name" %>
-    <%= form.email_field :email, placeholder: "email" %>
-    <%= form.password_field :password, placeholder: "new password" %>
-    <%= form.password_field :password_confirmation, placeholder: "new password confirmation" %>    
+<%= render 'layouts/banner' %>
 
-    <%= form.submit %>
-<% end %>
+<div class="container">
+    <h3 class="h3_edit_category text-muted mt-4">Editar usuário</h3>
+    <hr>
+    
+    <%= form_with model: @user, class: "text-secondary mb-5" do |form| %>
+
+        <div class="d-flex">
+            <div class="form-group w-50">
+                <%= form.label :nome %>
+                <%= form.text_field :name, class: "form-control" %>
+            </div>
+            <div class="form-group w-50 ml-2">
+                <%= form.label :perfil %>
+                <%= form.select :admin, [["Administrador", true], ["Usuário", false]], {}, { class: "form-control" } %>
+            </div>
+        </div>
+        <div class="d-flex mb-2">
+            <div class="form-group w-50">
+                <%= form.label :email %>
+                <%= form.email_field :email, class: "form-control" %>
+            </div>
+            <div class="form-group w-50 ml-2">
+                <%= form.label :cadastrado_em %> <!-- ```strftime("%d/%m/%Y")``` faz ficar na ordem dia/mes/ano, ao inves de mes/dia/ano -->
+                <input class="form-control" value="<%= @user.created_at.strftime("%d/%m/%Y") %>" disabled>
+            </div>
+        </div>
+        
+        <%= form.submit "Atualizar usuário", class: "btn btn-success px-4" %>
+        <%= link_to  "Voltar", users_path, class: "btn btn-secondary px-5 ml-3" %>
+
+    <% end %>
+</div>
+
+<%= render 'layouts/footer' %>
