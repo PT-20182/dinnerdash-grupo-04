@@ -1,6 +1,7 @@
 class MealsController < ApplicationController
   before_action :current_meal, only: [:show, :edit, :update, :destroy]
   before_action :set_page, only: [:index]
+  before_action :check_user_admin
 
 
   MEALS_PER_PAGE = 8

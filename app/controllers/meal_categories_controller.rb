@@ -1,5 +1,6 @@
 class MealCategoriesController < ApplicationController
   before_action :current_meal_category, only: [:edit, :update, :destroy]
+  before_action :check_user_admin
 
   def index
       @meal_categories = MealCategory.all

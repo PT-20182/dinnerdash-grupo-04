@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  resources :users
   resources :meal_categories
   resources :meals
-
-  get 'users/all'
-  get 'users/perfil'
   
   get 'home/index'
   
