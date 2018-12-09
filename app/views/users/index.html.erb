@@ -1,0 +1,11 @@
+
+<%= render  "layouts/banner" %>
+
+<table>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= button_to 'Edit', edit_user_path(user), method: 'get'%></td>
+      <td><%= button_to 'Remove', user_path(user), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
+  <% end %>
+</table>

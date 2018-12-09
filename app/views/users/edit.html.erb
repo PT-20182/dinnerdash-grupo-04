@@ -1,0 +1,9 @@
+<h3>Update User Details</h3>
+<%= form_with model: @user do |form| %>
+    <%= form.text_field :name, placeholder: "name" %>
+    <%= form.email_field :email, placeholder: "email" %>
+    <%= form.password_field :password, placeholder: "new password" %>
+    <%= form.password_field :password_confirmation, placeholder: "new password confirmation" %>    
+
+    <%= form.submit %>
+<% end %>
