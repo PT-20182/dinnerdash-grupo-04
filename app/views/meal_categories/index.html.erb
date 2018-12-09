@@ -1,14 +1,29 @@
-<%= render 'layouts/banner' %>
 
-<table>
-    <tr>
-        <% @meal_categories.each do |meal_category| %>
-            <td><%= link_to meal_category.name, meal_category_path(meal_category) %></td>
-            <td><%= button_to 'Edit', edit_meal_category_path(meal_category), method: 'get' %></td>
-            <td><%= button_to 'Remove', meal_category_path(meal_category), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-    </tr>
+<%= render  "layouts/banner" %>
 
-</table>
+<div class="container mt-4 mb-5 text-secondary">
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th>Nome</th>
+                <th>Número de Refeições</th>
+                <th colspan="3">Cadastrado em</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @meal_categories.each do |meal_category| %>
+                <tr>
+                    <td><%= meal_category.name %></td>
+                    <td>nada ainda</td>
+                    <td><%= meal_category.created_at.strftime("%d/%m/%Y") %></td>
+                    <td><%= link_to 'Edit', edit_meal_category_path(meal_category), method: 'get', class: "text-warning"%></td>
+                    <td><%= link_to 'Remove', meal_category_path(meal_category), method: 'delete', data: { confirm: 'Are you sure?' }, class: "text-danger" %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
 
-<%= link_to "Add a New Meal Category", new_meal_category_path %>
+    <%= link_to "Nova categoria de refeição", new_meal_category_path, class: "btn btn-success mt-3" %>
+</div>
+
+<%= render  "layouts/footer" %>
