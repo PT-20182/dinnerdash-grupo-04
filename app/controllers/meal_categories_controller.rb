@@ -2,8 +2,11 @@ class MealCategoriesController < ApplicationController
   before_action :current_meal_category, only: [:edit, :update, :destroy]
   before_action :check_user_admin
 
+  MEAL_CATEGORIES_SIZE = 8
+
   def index
-      @meal_categories = MealCategory.all
+      @page = (params[:page] || 0).to_i
+      @meal_categories = MealCategory.offset(MEAL_CATEGORIES_SIZE * @page).limit(MEAL_CATEGORIES_SIZE)
   end
 
   def new

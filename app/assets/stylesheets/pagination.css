@@ -1,0 +1,22 @@
+.paginacao {
+    display: inline-block;
+}
+
+.paginacao a {
+    color: #007bff;
+    float: left;
+    padding: 8px 13px;
+    border: solid #CCCCCC 1px;
+    border-left: 0;
+}
+
+.paginacao a:first-child {
+    border-left: solid #CCCCCC 1px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.paginacao a:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}

@@ -1,3 +1,7 @@
+<head>
+    <%= stylesheet_link_tag "pagination" %>
+</head>
+
 <%= render 'layouts/banner' %>
 
 <div class="mealtable" id="start">
@@ -44,7 +48,7 @@
 </div>
 <div class="paginacaoLinha">
     <%= button_to "nova refeição", new_meal_path, method: 'get', class: 'novaRefeicaoBotao' %>
-    <div class="paginacaoRefeicoes">
+    <div class="paginacao">
         <%= link_to "&laquo;".html_safe,
             if @page > 0 then meals_path(page: @page-1, anchor: "start") end %>
 

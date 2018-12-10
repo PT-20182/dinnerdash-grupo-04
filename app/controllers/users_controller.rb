@@ -2,8 +2,11 @@ class UsersController < ApplicationController
   before_action :current_user_by_id, only: [:edit, :update, :destroy]
   before_action :check_user_admin
 
+  USERS_SIZE = 8
+
   def index
-    @users = User.all
+    @page = (params[:page] || 0).to_i
+    @users = User.offset(USERS_SIZE * @page).limit(USERS_SIZE)
   end
 
   def edit

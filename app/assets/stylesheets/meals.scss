@@ -152,29 +152,6 @@
     background-color: #16B254;
 }
 
-.paginacaoRefeicoes {
-    display: inline-block;
-}
-
-.paginacaoRefeicoes a {
-    color: #007bff;
-    float: left;
-    padding: 8px 13px;
-    border: solid #CCCCCC 1px;
-    border-left: 0;
-}
-
-.paginacaoRefeicoes a:first-child {
-    border-left: solid #CCCCCC 1px;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-}
-
-.paginacaoRefeicoes a:last-child {
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-}
-
 .breaklineRefeicoes {
     display: block;
     height: 1px;

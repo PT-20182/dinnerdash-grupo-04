@@ -1,7 +1,10 @@
+<head>
+    <%= stylesheet_link_tag "pagination" %>
+</head>
 
 <%= render  "layouts/banner" %>
 
-<div class="container mt-4 mb-5 text-secondary">
+<div class="container mt-4 mb-5 text-secondary d-flex flex-column">
     <table class="table">
         <thead class="thead-light">
             <tr>
@@ -22,6 +25,22 @@
             <% end %>
         </tbody>
     </table>
+
+    <div class="paginacao align-self-end">
+        <%= link_to "&laquo;".html_safe,
+            if @page > 0 then users_path(page: @page-1, anchor: "start") end %>
+
+        <% for i in 0..MealCategory.count/8.ceil %>
+            <%=  link_to i+1, users_path(page: i, anchor: "start"), class: "active" if current_class?(users_path(page: @page))  %>
+        <% end %>
+
+        <%= link_to "&raquo;".html_safe,
+            if @page < MealCategory.count/8.ceil then
+                users_path(page: @page+1, anchor: "start")
+            else
+                users_path(page: @page, anchor: "start") end %>
+
+    </div>
 </div>
 
 <%= render  "layouts/footer" %>
