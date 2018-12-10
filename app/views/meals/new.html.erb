@@ -1,52 +1,42 @@
 <%= render 'layouts/banner' %>
 
-<div class="refeicoesBody">
-    <h3>Nova Refeição</h3>
-    <div class="breaklineRefeicoes"></div>
+<div class="container">
+    <h3 class="h3_edit_category text-muted mt-4">Nova refeição</h3>
+    <hr>
+    
+    <%= form_with model: @meal, class: "text-secondary mb-5" do |form| %>
 
-    <%= form_with model: @meal do |form| %>
-
-
-    <div class="linhasNewRefeicoes">
-
-        <div class="tagFormRefeicoes">
-            <%= label_tag(:name, "Nome") %>
-            <%= form.text_field :name, class: 'formRefeicoesInput' %>
+        <div class="d-flex">
+            <div class="form-group w-50">
+                <%= form.label :nome %>
+                <%= form.text_field :name, class: "form-control" %>
+            </div>
+            <div class="form-group w-50 ml-2">
+                <%= form.label :categoria %>
+                <% options = options_from_collection_for_select(@meal_categories, 'id', 'name') %>
+                <%= form.select :meal_category_id,  options, {}, {class: "form-control"} %>
+            </div>
         </div>
 
-        <div class="tagFormRefeicoes">
+        <%= form.label :descrição %>
+        <%= form.text_area :description, class: "form-control w-100", rows: 3 %>
 
+        <div class="d-flex mt-3">
+            <div class="form-group w-50">
+                <%= form.label :preço %>
+                <%= form.text_field :price, class: "form-control" %>
+            </div>
+            <div class="form-group w-50 ml-2">
+                <%= form.label :categoria %>
+                <% options = options_from_collection_for_select(@meal_categories, 'id', 'name') %>
+                <%= form.file_field :image, class: "form-control-file" %>
+            </div>
         </div>
+        
+        <%= form.submit "Criar refeição", class: "btn btn-success px-4" %>
+        <%= link_to  "Voltar", meals_path, class: "btn btn-secondary px-5 ml-3" %>
 
-    </div>
-
-    <div class="tagFormRefeicoesDescricao">
-        <%= label_tag(:description, "Descrição") %>
-        <%= form.text_area :description, cols: '10', rows: '10', class: 'formRefeicoesInputDescricao' %>
-
-    </div>
-
-    <div class="linhasNewRefeicoes">
-
-        <div class="tagFormRefeicoes">
-            <%= label_tag(:price, "Preço") %>
-            <%= form.text_field :price, class: 'formRefeicoesInput' %>
-        </div>
-
-        <div class="tagFormRefeicoes">
-            <%= label_tag(:image, "Foto") %>
-            <%= form.file_field :image, placeholder: "Escolher arquivo..." %>
-        </div>
-
-    </div>
-
-    <%= form.check_box :available, placeholder: "available" %>
-        <%= label_tag(:available, "Esta refeição não estará disponível no cardápio") %>
-
-    <%= form.submit %>
-<% end %>
-
+    <% end %>
 </div>
-
 
 <%= render 'layouts/footer' %>

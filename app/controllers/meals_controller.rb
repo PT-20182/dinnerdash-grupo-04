@@ -15,6 +15,8 @@ class MealsController < ApplicationController
   end
 
   def new
+      @meal_categories = MealCategory.all
+      
       @meal = Meal.new
   end
 
@@ -51,7 +53,7 @@ class MealsController < ApplicationController
  private
 
  def meal_params
-    params.require(:meal).permit(:name, :description, :price, :image, :available)
+    params.require(:meal).permit(:name, :meal_category_id, :description, :price, :image)
  end
 
  def current_meal
