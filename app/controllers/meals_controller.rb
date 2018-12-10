@@ -16,6 +16,8 @@ class MealsController < ApplicationController
 
   def new
       @meal = Meal.new
+
+      @meal_categories = MealCategory.all
   end
 
   def create
