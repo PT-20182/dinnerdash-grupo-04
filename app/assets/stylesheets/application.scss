@@ -15,6 +15,13 @@
  */
 
  /* Custom bootstrap variables must be set or imported *before* bootstrap. */
+ @import "bootstrap/functions";
+
+ $custom-file-text: (
+   en: "Browse",
+   pt-br: "Procurar"
+ );
+
  @import "bootstrap";
 
 @font-face {

@@ -27,9 +27,13 @@
                 <%= form.text_field :price, class: "form-control" %>
             </div>
             <div class="form-group w-50 ml-2">
-                <%= form.label :categoria %>
-                <% options = options_from_collection_for_select(@meal_categories, 'id', 'name') %>
-                <%= form.file_field :image, class: "form-control-file" %>
+                <%= form.label :foto %>
+                <div class="input-group">
+                    <div class="custom-file">
+                        <%= form.file_field :image, class: "custom-file-input" %>
+                        <label class="custom-file-label" for="inputGroupFile01">Escolher arquivo...</label>
+                    </div>
+                </div>
             </div>
         </div>
         
