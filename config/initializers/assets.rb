@@ -16,3 +16,4 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # CSS stylesheets
 Rails.application.config.assets.precompile += %w( users_edit.css )
 Rails.application.config.assets.precompile += %w( bannerbackoff.css )
+Rails.application.config.assets.precompile += %w( pagination.css )
