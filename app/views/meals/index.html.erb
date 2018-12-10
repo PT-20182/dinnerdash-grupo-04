@@ -4,7 +4,7 @@
 
 <%= render 'layouts/banner' %>
 
-<div class="mealtable" id="start">
+<div class="container d-flex flex-column justify-content-between" id="start">
 
   <% if Meal.count == 0 %>
     <h3 class="">Comece agora a criar suas refeições!</h3>
@@ -57,7 +57,7 @@
         <% end %>
 
         <%= link_to "&raquo;".html_safe,
-            if @page < Meal.count/8.ceil - 1 then
+            if @page < Meal.count/8.ceil then
                 meals_path(page: @page+1, anchor: "start")
             else
                 meals_path(page: @page, anchor: "start") end %>
