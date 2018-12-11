@@ -20,7 +20,12 @@
                     <div class="card mr-3" style="width: 18rem;">
 
                         <div class="position-relative"> <!-- Necessario para o nome ficar no lugar -->
-                            <%= image_tag url_for(item.image), class: "card-image-top imagemRefeicoes" %>
+                            <div class="<%= 'unavailable' if !item.available %>">
+                                <%= image_tag url_for(item.image), class: "card-image-top imagemRefeicoes" %>
+                            </div>
+
+                            <span class="caption" style="<%= 'display:none' if item.available %>">Refeição indisponível</span>
+
                             <div class="position-absolute fixed-bottom nomeRefeicoes">
                                 <%= item.name %>
                             </div>
@@ -54,7 +59,7 @@
 
 <div class="container my-5 d-flex justify-content-between align-items-center">
     <%= button_to "Nova refeição", new_meal_path, method: 'get', class: 'btn btn-success px-5 py-2' %>
-    
+
     <div class="paginacao">
         <%= link_to "&laquo;".html_safe,
             if @page > 0 then meals_path(page: @page-1, anchor: "start") end %>
