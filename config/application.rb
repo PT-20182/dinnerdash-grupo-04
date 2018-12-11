@@ -16,6 +16,10 @@ module MealApp
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2bb7a5b134d69f90beae58d368f11be8c3ef91d3
     config.i18n.default_locale = :'pt-br'
   end
 end
