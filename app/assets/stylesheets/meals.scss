@@ -2,32 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-.linhasRefeicoes {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.colunasRefeicoes {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    width: 100%;
-    margin-top: 2%;
-}
-
-.cardsRefeicoes {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    outline: 1px solid #bbbbbb;
-    height: 47vh;
-    width: 23%;
-    font-size: 120%;
-    margin-right: 30px;
-}
-
 .imagemRefeicoes {
     display: flex;
     align-items: flex-end;
@@ -51,99 +25,6 @@
     padding-left: 4%;
 }
 
-.CardbottomRefeicoes {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.descricaoRefeicoes {
-    font-size: 18px;
-    padding-left: 4%;
-    padding-right: 4%;
-    margin-top: 1.5vh;
-    margin-bottom: 2vh;
-    height: 5vh;
-    width: 100%;
-    color: #757575;
-    flex-shrink: 2;
-}
-
-.precoRefeicoes {
-    font-size: 20px;
-    padding-left: 4%;
-    margin-top: 1vh;
-    color: #46984E;
-}
-
-.botoesCardRefeicoes {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    margin: 1vh 4% 1vh 4%;
-}
-
-.botoesCardEditar {
-    outline: none;
-    border: 0px;
-    border-radius: 6px;
-    background-color: #FFCF2C;
-    padding: 7px;
-    color: white;
-    width: 175px;
-    margin-right: 7px;
-}
-
-.botoesCardEditar:hover {
-    cursor: pointer;
-    background-color: #F9BF00;
-    text-decoration: underline;
-}
-
-.botoesCardExcluir {
-    outline: none;
-    border: 0px;
-    border-radius: 6px;
-    background-color: #E82431;
-    padding: 7px;
-    width: 135px;
-    color: white;
-    margin-left: 7px;
-}
-
-.botoesCardExcluir:hover {
-    cursor: pointer;
-    background-color: #C2020C;
-    text-decoration: underline;
-}
-
-.paginacaoLinha {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 7vh;
-    margin-bottom: 7vh;
-    margin-left: 8%;
-    margin-right: 10%;
-}
-
-.novaRefeicaoBotao {
-    outline: none;
-    border: 0px;
-    border-radius: 6px;
-    padding: 11px;
-    width: 240px;
-    font-size: 18px;
-    background-color: #1EC762;
-    color: white;
-}
-
-.novaRefeicaoBotao:hover {
-    cursor: pointer;
-    background-color: #16B254;
-}
-
 .breaklineRefeicoes {
     display: block;
     height: 1px;
@@ -153,48 +34,4 @@
     width: 100%;
     margin-top: 1%;
     margin-bottom: 1%;
-}
-
-.refeicoesBody {
-    margin-top: 2%;
-    margin-left: 8%;
-    margin-right: 8%;
-}
-
-.linhasNewRefeicoes {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 1%;
-}
-
-.tagFormRefeicoes {
-    display: flex;
-    flex-direction: column;
-    width: 49%;
-    margin-top: 2%;
-}
-
-.tagFormRefeicoesDescricao {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin-top: 2%;
-}
-
-.formRefeicoesInput {
-    padding: 8px;
-    border: 1px solid #aaa;
-    border-radius: 4px;
-    background-color: white;
-    width: 100%;
-}
-
-.formRefeicoesInputDescricao {
-    padding: 8px;
-    border: 1px solid #aaa;
-    border-radius: 4px;
-    background-color: white;
-    width: 100%;
-    height: 10vh;
 }

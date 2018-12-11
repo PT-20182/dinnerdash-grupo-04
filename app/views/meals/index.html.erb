@@ -6,48 +6,53 @@
 
 <div class="container d-flex flex-column justify-content-between" id="start">
 
-  <% if Meal.count == 0 %>
-    <h3 class="">Comece agora a criar suas refeições!</h3>
-    <div class="breaklineRefeicoes"></div>
-  <% end %>
+    <% if Meal.count == 0 %>
+        <h3 class="">Comece agora a criar suas refeições!</h3>
+        <div class="breaklineRefeicoes"></div>
+    <% end %>
 
-  <% @meals.in_groups_of(4, false).each do |group| %>
+    <% @meals.in_groups_of(4, false).each do |group| %>
 
-  <div class="linhasRefeicoes">
-      <div class="colunasRefeicoes">
+        <div class="d-flex flex-column align-itens-center">
+            <div class="d-flex justify-content-start w-100 mt-4">
 
-          <% group.each do |item| %>
-          <div class="cardsRefeicoes">
-              <div class="imagemRefeicoes">
-                  <%= item.image %>
-                  <div class="nomeRefeicoes">
-                      <%= item.name %>
+                <% group.each do |item| %>
+                    <div class="card mr-3" style="width: 16rem;">
+                        
+                        <div class="imagemRefeicoes">
+                            <%= item.image %>
+                            <div class="nomeRefeicoes">
+                                <%= item.name %>
+                            </div>
+                        </div>
 
-                  </div>
-              </div>
-              <div class="CardbottomRefeicoes">
-                  <div class="descricaoRefeicoes">
-                      <%= item.description %>
+                        <div class="card-body">
+                            <div class="card-text text-secondary">
+                                <%= item.description %>
 
-                  </div>
-                  <div class="precoRefeicoes">
-                      R$ <%= item.price %> por porção
+                            </div>
+                            <div class="card-text text-success">
+                                R$ <%= item.price %> por porção
 
-                  </div>
-                  <div class="botoesCardRefeicoes">
-                      <%= button_to 'editar', edit_meal_path(item), method: 'get', class: 'botoesCardEditar' %>
-                      <%= button_to 'excluir', meal_path(item), method: 'delete', data: { confirm: 'Você tem certeza?' }, class: 'botoesCardExcluir' %>
-                  </div>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <%= button_to 'editar', edit_meal_path(item), method: 'get', class: 'btn btn-warning text-white px-4' %>
+                                <%= button_to 'excluir', meal_path(item), method: 'delete', data: { confirm: 'Você tem certeza?' }, class: 'btn btn-danger px-4' %>
+                            </div>
+                        </div>
+                    </div>
+                <% end %>
 
-              </div>
-          </div>
-          <% end %>
-      </div>
-  </div>
-  <% end %>
+            </div>
+        </div>
+
+    <% end %>
+
 </div>
-<div class="paginacaoLinha">
-    <%= button_to "nova refeição", new_meal_path, method: 'get', class: 'novaRefeicaoBotao' %>
+
+<div class="container my-5 d-flex justify-content-between align-items-center">
+    <%= button_to "Nova refeição", new_meal_path, method: 'get', class: 'btn btn-success px-5 py-2' %>
+    
     <div class="paginacao">
         <%= link_to "&laquo;".html_safe,
             if @page > 0 then meals_path(page: @page-1, anchor: "start") end %>

@@ -1,5 +1,5 @@
 class MealsController < ApplicationController
-  before_action :current_meal, only: [:show, :edit, :update, :destroy]
+  before_action :current_meal, only: [:edit, :update, :destroy]
   before_action :set_page, only: [:index]
   before_action :check_user_admin
 
@@ -8,10 +8,6 @@ class MealsController < ApplicationController
 
   def index
       @meals = Meal.order(:id).limit(MEALS_PER_PAGE).offset(@page * MEALS_PER_PAGE)
-  end
-
-  def show
-
   end
 
   def new
