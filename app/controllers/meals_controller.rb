@@ -62,6 +62,6 @@ class MealsController < ApplicationController
  def meal_category
     @meal_categories = MealCategory.all
  end
- 
+
 
 end
