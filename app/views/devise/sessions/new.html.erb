@@ -21,7 +21,6 @@
                                           placeholder: "example@website.com", 
                                           id: "signup_email", 
                                           class: "form-control" %>
-                    <%= errors_for resource, :email %>
                 </div>
 
                 <div class="form-group">
@@ -31,7 +30,6 @@
                                             placeholder: "Sua senha",
                                             id: "signup_password", 
                                             class: "form-control"%>
-                    <%= errors_for resource, :password %>
                 </div>
 
                 <% if devise_mapping.rememberable? -%>
