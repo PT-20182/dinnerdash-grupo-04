@@ -1,6 +1,7 @@
 class MealsController < ApplicationController
-  before_action :current_meal, only: [:show, :edit, :update, :destroy]
+  before_action :current_meal, only: [:edit, :update, :destroy]
   before_action :set_page, only: [:index]
+  before_action :meal_category, only: [:new, :edit]
   before_action :check_user_admin
 
 
@@ -10,13 +11,7 @@ class MealsController < ApplicationController
       @meals = Meal.order(:id).limit(MEALS_PER_PAGE).offset(@page * MEALS_PER_PAGE)
   end
 
-  def show
-
-  end
-
   def new
-      @meal_categories = MealCategory.all
-      
       @meal = Meal.new
   end
 
@@ -33,7 +28,7 @@ class MealsController < ApplicationController
   def update
     @meal.update(meal_params)
 
-    redirect_to meal_path(@meal)
+    redirect_to meals_path
  end
 
  def upload
@@ -53,7 +48,7 @@ class MealsController < ApplicationController
  private
 
  def meal_params
-    params.require(:meal).permit(:name, :meal_category_id, :description, :price, :image)
+    params.require(:meal).permit(:name, :meal_category_id, :description, :price, :image, :available)
  end
 
  def current_meal
@@ -63,5 +58,10 @@ class MealsController < ApplicationController
  def set_page
      @page = params[:page].to_i || 1
  end
+
+ def meal_category
+    @meal_categories = MealCategory.all
+ end
+
 
 end

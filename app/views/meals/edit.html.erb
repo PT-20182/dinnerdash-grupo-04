@@ -1,16 +1,51 @@
 <%= render 'layouts/banner' %>
 
+<div class="container">
+    <h3 class="h3_edit_category text-muted mt-4">Editar refeição</h3>
+    <hr>
+    
+    <%= form_with model: @meal, class: "text-secondary mb-5" do |form| %>
 
-<h3>Editar refeição</h3>
-<%= form_with model: @meal do |form| %>
-  <%= form.text_field :name, placeholder: "name" %>
-  <%= form.text_field :description, placeholder: "description" %>
-  <%= form.text_field :price, placeholder: "price" %>
-  <%= form.text_field :image, placeholder: "image" %>
-  <%= form.check_box :available, placeholder: "available" %>
-    <%= label_tag(:available, "Esta refeição não estará disponível no cardápio") %>
+        <div class="d-flex">
+            <div class="form-group w-50">
+                <%= form.label :nome %>
+                <%= form.text_field :name, class: "form-control" %>
+            </div>
+            <div class="form-group w-50 ml-2">
+                <%= form.label :categoria %>
+                <% options = options_from_collection_for_select(@meal_categories, 'id', 'name', :selected => form.object.meal_category_id) %>
+                <%= form.select :meal_category_id,  options, {}, {class: "form-control"} %>
+            </div>
+        </div>
 
-  <%= form.submit %>
-<% end %>
+        <%= form.label :descrição %>
+        <%= form.text_area :description, class: "form-control w-100", rows: 3 %>
+
+        <div class="d-flex mt-3">
+            <div class="form-group w-50">
+                <%= form.label :preço %>
+                <%= form.text_field :price, class: "form-control" %>
+            </div>
+            <div class="form-group w-50 ml-2">
+                <%= form.label :foto %>
+                <div class="input-group">
+                    <div class="custom-file">
+                        <%= form.file_field :image, class: "custom-file-input" %>
+                        <label class="custom-file-label" for="inputGroupFile01">Escolher arquivo...</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="custom-control custom-checkbox row mb-3">
+            <%= form.check_box :available, {}, "true", "false" %>
+            <%= form.label :refeição_disponível_no_cardápio %>
+        </div>
+        
+        <%= form.submit "Editar refeição", class: "btn btn-success px-4" %>
+        <%= link_to  "Voltar", meals_path, class: "btn btn-secondary px-5 ml-3" %>
+
+    <% end %>
+</div>
 
 <%= render 'layouts/footer' %>
