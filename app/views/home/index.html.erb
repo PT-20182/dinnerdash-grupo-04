@@ -12,11 +12,11 @@
 <div class="container">
     <div class="firstRow">
         <h3>Refeições metállicas \m/</h3>
-        <%= query_meals("Metállica").in_groups_of(4, false).each do |group| %> <!-- Seleciona apenas as refeicoes metallicas e mostra apenas 4/linha -->
+        <% query_meals("Metállica").in_groups_of(4, false).each do |group| %> <!-- Seleciona apenas as refeicoes metallicas e mostra apenas 4/linha -->
             
             <div class="d-flex flex-column align-itens-center">
                 <div class="d-flex justify-content-start w-100 mt-4">                        
-                    <%= group.each do |item| %>
+                    <% group.each do |item| %>
                         <div class="card mr-3" style="width: 18rem;">
 
                                 <div class="position-relative"> <!-- Necessario para o nome ficar no lugar -->
