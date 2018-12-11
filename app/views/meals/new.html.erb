@@ -38,11 +38,9 @@
         </div>
 
         <div class="custom-control custom-checkbox row mb-3">
-            <%= hidden_field_tag :available, 'false' %>
-            <%= check_box_tag :available, checked = true %>
+            <%= form.check_box :available, {}, "true", "false" %>
             <%= form.label :disponível %>
         </div>
-
         
         <%= form.submit "Criar refeição", class: "btn btn-success px-4" %>
         <%= link_to  "Voltar", meals_path, class: "btn btn-secondary px-5 ml-3" %>
