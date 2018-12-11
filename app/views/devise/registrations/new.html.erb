@@ -8,13 +8,17 @@
 
     <div class="boxRight">
         <div class="boxRightInner mx-auto">
-            <%= link_to  "dinnerdash", root_path, class: "title mb-5" %>
+            <% if resource.errors.any? then m=3 else m=5 end %>
+            <%= link_to  "dinnerdash", root_path, class: "title mb-#{m}" %>
 
-            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:class => 'w-100'} ) do |f| %>
-              <%= devise_error_messages! %>
+            <% resource.errors.full_messages.each do |msg| %>
+                <span class="mb-2 text-danger align-self-start"><%= msg %></span>
+            <% end %>
+
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:class => 'w-100', :novalidate => 'novalidate'} ) do |f| %>
 
               <div class="field form-group">                                
-                  <%= f.label :name, class: 'formText' %><br />
+                  <%= label_tag :name, "Nome", class: 'formText' %>
                   <%= f.text_field :name, 
                                     placeholder: "Digite seu belo nome aqui ;)",
                                     autofocus: true, 
@@ -24,7 +28,7 @@
               </div>
 
               <div class="field form-group">
-                <%= f.label :email, class: 'formText' %><br />
+                <%= f.label :email, class: 'formText' %>
                 <%= f.email_field :email, 
                                   placeholder: "example@website.com",
                                   autocomplete: "email",
@@ -33,19 +37,19 @@
               </div>
 
               <div class="field form-group">
-                <%= f.label :password, class: 'formText' %>
-                <% if @minimum_password_length %>
-                <em>(<%= @minimum_password_length %> characters minimum)</em>
-                <% end %><br />
+                <%= label_tag :password, "Senha", class: 'formText' %>
                 <%= f.password_field :password, 
                                       placeholder: "Sua senha",
                                       autocomplete: "new-password",
                                       id: "signup_password", 
                                       class: "form-control" %>
+                <% if @minimum_password_length %>
+                <small class="text-secondary"><%= @minimum_password_length %> caracteres no mínimo</small>
+                <% end %><br />
               </div>
 
               <div class="field form-group">
-                <%= f.label :password_confirmation, class: 'formText' %><br />
+                <%= label_tag :password_confirmation, "Confirmar Senha", class: 'formText' %>
                 <%= f.password_field :password_confirmation, 
                                       placeholder: "Confirme sua senha",
                                       autocomplete: "new-password",
