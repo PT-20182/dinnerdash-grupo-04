@@ -24,7 +24,9 @@
         <div class="d-flex mt-3">
             <div class="form-group w-50">
                 <%= form.label :preço %>
-                <%= form.text_field :price, class: "form-control" %>
+                <%= form.number_field   :price, value: number_to_currency(form.object.price.to_f,
+                                        delimiter: '.', separator: ',', unit: 'R$'),
+                                        class: "form-control" %>
             </div>
             <div class="form-group w-50 ml-2">
                 <%= form.label :foto %>
