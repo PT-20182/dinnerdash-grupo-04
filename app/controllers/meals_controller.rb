@@ -18,7 +18,12 @@ class MealsController < ApplicationController
   def create
     meal = Meal.create(meal_params)
 
-    redirect_to meals_path
+    if meal.save
+      redirect_to meals_path
+    else
+      render 'new'
+    end
+
   end
 
   def edit
@@ -26,10 +31,12 @@ class MealsController < ApplicationController
   end
 
   def update
-    @meal.update(meal_params)
-
-    redirect_to meals_path
- end
+    if @meal.update(meal_params)
+      redirect_to meals_path
+    else
+      render 'edit'
+    end
+  end
 
  def upload
      uploaded_io = params[:image]
