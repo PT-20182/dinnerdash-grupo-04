@@ -25,7 +25,7 @@
             <div class="form-group w-50">
                 <%= form.label :preço %>
                 <%= form.number_field   :price, value: number_to_currency(form.object.price.to_f,
-                                        delimiter: '.', separator: ',', unit: 'R$'),
+                                        delimiter: '.', separator: ',', unit: 'R$'), step: 0.01,
                                         class: "form-control" %>
             </div>
             <div class="form-group w-50 ml-2">
