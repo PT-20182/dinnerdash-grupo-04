@@ -22,8 +22,8 @@
                         <td><%= meal_category.name %></td>
                         <td><%= meal_category.meals.size %></td>
                         <td><%= meal_category.created_at.strftime("%d/%m/%Y") %></td>
-                        <td><%= link_to 'Edit', edit_meal_category_path(meal_category), method: 'get', class: "text-warning"%></td>
-                        <td><%= link_to 'Remove', meal_category_path(meal_category), method: 'delete', data: { confirm: 'Are you sure?' }, class: "text-danger" %></td>
+                        <td><%= link_to 'editar', edit_meal_category_path(meal_category), method: 'get', class: "text-warning"%></td>
+                        <td><%= link_to 'remover', meal_category_path(meal_category), method: 'delete', data: { confirm: 'Are you sure?' }, class: "text-danger" %></td>
                     </tr>
                 <% end %>
             </tbody>

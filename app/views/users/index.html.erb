@@ -24,8 +24,8 @@
                     </td>
                     <td><%= user.email %></td>
                     <td><%= user.created_at.strftime("%d/%m/%Y") %></td>
-                    <td><%= link_to 'Edit', edit_user_path(user), method: 'get', class: "text-warning"%></td>
-                    <td><%= link_to 'Remove', user_path(user), method: 'delete', data: { confirm: 'Are you sure?' }, class: "text-danger" %></td>
+                    <td><%= link_to 'editar', edit_user_path(user), method: 'get', class: "text-warning"%></td>
+                    <td><%= link_to 'excluir', user_path(user), method: 'delete', data: { confirm: 'Are you sure?' }, class: "text-danger" %></td>
                 </tr>
             <% end %>
         </tbody>
