@@ -11,8 +11,7 @@
                 <h3 class="h3_title">Escolha
             <% end %> 
                     seu/sua <% @meal_categories.first(5).each do |cat| %>
-                        <%= cat.name.downcase %>
-                        <%= "," unless cat == @meal_categories.find(5) %>
+                        <%= cat.name.downcase + "," %>
                         <% if cat == @meal_categories.first %> <br> <% end %>
                     <% end %>
                 </h3>

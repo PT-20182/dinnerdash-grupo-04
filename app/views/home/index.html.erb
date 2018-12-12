@@ -36,7 +36,7 @@
                                     </div>
 
                                     <div class="d-flex justify-content-between">
-                                        <%= button_to 'adicionar ao meu prato', :root, method: 'get',
+                                        <%= link_to 'adicionar ao meu prato', add_item_path(id: item.id), method: :put,
                                             class: 'btn btn-success btn-small text-white px-4' %>
                                     </div>
                                 </div>

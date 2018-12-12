@@ -1,0 +1,6 @@
+<h1>Eu sou muito lindo</h1>
+
+<% @items.each do |meal| %>
+<p><%= meal.name %></p> 
+<%= link_to  "remover", remove_item_path(id: meal.id), method: :put %>
+<% end %>
