@@ -1,2 +1,43 @@
-<h1>Orders#edit</h1>
-<p>Find me in app/views/orders/edit.html.erb</p>
+<%= render 'layouts/banner' %>
+
+<div class="container">
+    <h3 class="h3_edit_category text-muted mt-4">Editar usuário</h3>
+    <hr>
+    
+    <%= form_with model: @order, local: true, class: "text-secondary mb-5", :novalidate => 'novalidate' do |form| %>
+
+        <div class="d-flex">
+            <div class="form-group w-50">
+                <%= label_tag :número %>
+                <input class="form-control" value="<%= @order.id %>" disabled>
+            </div>
+            <div class="form-group w-50 ml-2">
+                <%= form.label :status %>
+                <% options = options_from_collection_for_select(@situations, 'id', 'description', :selected => form.object.situation_id) %>
+                <%= form.select :situation_id,  options, {}, {class: "form-control"} %>
+            </div>
+        </div>
+        <div class="d-flex mb-2">
+            <div class="form-group w-50">
+                <%= label_tag :data %>
+                <input class="form-control" value="<%= @order.created_at.strftime("%d/%m/%Y") %>" disabled>
+            </div>
+            <div class="form-group w-50 ml-2">
+                <%= label_tag :usúario %>
+                <input class="form-control" value="<%= User.find(@order.user_id)[:name] %>" disabled>
+            </div>
+        </div>
+        <div class="d-flex mb-2">
+            <div class="form-group w-50">
+                <%= label_tag :preço_total %>
+                <input class="form-control" value="R$ <%= number_with_precision(@order.price, precision: 2, separator: ',', delimiter: '.') %>" disabled>
+            </div>
+            <div class="form-group w-50 ml-2"></div>
+        </div>
+        <%= form.submit "Atualizar pedido", class: "btn btn-success px-4" %>
+        <%= link_to  "Voltar", orders_path, class: "btn btn-secondary px-5 ml-3" %>
+
+    <% end %>
+</div>
+
+<%= render 'layouts/footer' %>

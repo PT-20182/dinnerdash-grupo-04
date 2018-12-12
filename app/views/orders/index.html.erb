@@ -42,7 +42,7 @@
         </tbody>
     </table>
 
-    <div class="paginacao align-self-end">
+    <div class="paginacao align-self-end mt-5">
         <%= link_to "&laquo;".html_safe,
             if @page > 0 then orders_path(page: @page-1, anchor: "start") end %>
 

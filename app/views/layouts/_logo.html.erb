@@ -21,7 +21,7 @@
     <div class="ml-auto d-flex justify-content-around">
         <% if user_signed_in? %>
             <% if current_user.admin %>
-                <%= link_to  "backoffice", meals_path, class: "text-warning font-weight-bold" %>
+                <%= link_to  "backoffice", orders_path, class: "text-warning font-weight-bold" %>
             <% end %>
             <%= link_to  "perfil", edit_user_registration_path, class: "text-light" %>
             <%= link_to  "sair", destroy_user_session_path, method: :delete, class: "text-light" %>

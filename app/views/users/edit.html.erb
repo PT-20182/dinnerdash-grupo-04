@@ -16,11 +16,11 @@
 
         <div class="d-flex">
             <div class="form-group w-50">
-                <%= form.label :nome %>
+                <%= label_tag :name, "Nome" %>
                 <%= form.text_field :name, class: "form-control" %>
             </div>
             <div class="form-group w-50 ml-2">
-                <%= form.label :perfil %>
+                <%= label_tag :admin, "Perfil" %>
                 <%= form.select :admin, [["Administrador", true], ["Usuário", false]], {}, { class: "form-control" } %>
             </div>
         </div>

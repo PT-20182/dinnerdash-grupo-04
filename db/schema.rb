@@ -54,6 +54,16 @@ ActiveRecord::Schema.define(version: 2018_12_11_140032) do
     t.index ["meal_category_id"], name: "index_meals_on_meal_category_id"
   end
 
+  create_table "meals_orders", id: false, force: :cascade do |t|
+    t.integer "quantity"
+    t.bigint "order_id"
+    t.bigint "meal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["meal_id"], name: "index_meals_orders_on_meal_id"
+    t.index ["order_id"], name: "index_meals_orders_on_order_id"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.decimal "price"
     t.datetime "created_at", null: false
@@ -62,16 +72,6 @@ ActiveRecord::Schema.define(version: 2018_12_11_140032) do
     t.bigint "situation_id"
     t.index ["situation_id"], name: "index_orders_on_situation_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
-  end
-
-  create_table "orders_meals", id: false, force: :cascade do |t|
-    t.integer "quantity"
-    t.bigint "order_id"
-    t.bigint "meal_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["meal_id"], name: "index_orders_meals_on_meal_id"
-    t.index ["order_id"], name: "index_orders_meals_on_order_id"
   end
 
   create_table "situations", force: :cascade do |t|
