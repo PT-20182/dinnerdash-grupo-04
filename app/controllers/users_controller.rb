@@ -14,9 +14,20 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update(user_params)
+    if @user.update(user_params)
+      redirect_to users_path
+    else
+      alert = []
 
-    redirect_to users_path(@user)
+      if user_params[:name].blank?  
+        alert << "Nome não pode estar em branco"
+      end
+      if user_params[:email].blank?  
+        alert << "Email não pode estar em branco"
+      end
+
+      redirect_to edit_user_path(@user), alert: alert
+    end 
   end
 
   def destroy
