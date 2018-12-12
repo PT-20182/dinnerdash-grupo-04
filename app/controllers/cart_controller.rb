@@ -1,6 +1,8 @@
 class CartController < ApplicationController
 	def show
 		@items = Meal.find(session[:cart])
+		@user = User.includes(:orders).find(current_user.id)
+		@meal_categories = MealCategory.all
 	end 
 	
 	def add_item

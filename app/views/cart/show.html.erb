@@ -1,6 +1,96 @@
-<h1>Eu sou muito lindo</h1>
+<!--<h1>Eu sou muito lindo</h1>
 
 <% @items.each do |meal| %>
 <p><%= meal.name %></p> 
 <%= link_to  "remover", remove_item_path(id: meal.id), method: :put %>
+<% end %>-->
+
+<%= render  "layouts/banner_home" %>
+
+<div class="container-fluid bg-warning p-1 mb-5">
+
+</div>
+
+<div class="container d-flex flex-column">
+    <h2 class="h2_title mb-3 text-dark" style="font-size: 2.5em;">O seu pedido:</h2>
+    <h4 class="h4_title text-secondary">Confira os itens pedidos antes de finalizar o pedido.</h4>
+</div>
+
+<%= current_user.id %>
+
+<% current_user.orders.each do |item| %>
+    <%= number_with_precision(item.price, precision: 2,
+                                    separator: ',', delimiter: '.') %>
 <% end %>
+
+<div class="container">
+
+    <!-- itens dentro do carrinho -->
+
+</div>
+
+<div class="container mb-5"><hr class="border-top"></div>
+
+<div class="container d-flex flex-row mb-5">
+    <div class="container d-flex flex-column mr-5">
+        <h2 class="h2_title mb-4 text-dark">Esqueceu algo?</h2>
+        <h4 class="h4_title text-secondary">
+            <%= link_to  "Clique aqui", root_path(), class: "text-primary" %>
+            para retornar ao nosso menu.
+        </h4>
+    </div>
+
+    <div class="container d-flex flex-column ml-5">
+        <h2 class="h2_title mb-3">Preço total do pedido:
+            <!-- preco total -->
+        </h2>
+        <%= link_to 'finalizar e pagar', :root, #sera modificado ainda
+            class: 'btn btn-success text-white w-50'%>
+    </div>
+</div>
+
+<div class="dropdown-divider mb-5 text-dark"></div>
+
+<div class="container">
+    <h1 class="text-dark mb-3">Pedidos anteriores</h1>
+
+    <div class="container mt-4 mb-5 text-secondary d-flex flex-column">
+        <table class="table">
+            <thead class="thead">
+                <tr>
+                    <th>Pedido de nº</th>
+                    <th>Status</th>
+                    <th>Data</th>
+                    <th>Preço Total</th>
+                    <th colspan="3">Detalhes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% current_user.orders.each do |order| %>
+                    <tr>
+                        <td><%= order.id %></td>
+
+                            <% case order.situation_id %>
+                            <% when 1 %>
+                            <% type = "primary" %>
+                            <% when 2 %>
+                            <% type = "danger" %>
+                            <% when 3 %>
+                            <% type = "success" %>
+                            <% end %>
+
+                        <td> <p class="d-flex justify-content-center text-white m-0 px-2 py-1 rounded bg-<%= type %>"><%= Situation.find(order.situation_id)[:description] %></p> </td>
+                        <td><%= order.created_at.strftime("%d/%m/%Y") %></td>
+                        <td><span>  R$ <%= number_with_precision(order.price, precision: 2, separator: ',', delimiter: '.') %></span></td>
+                        <td><%= link_to 'ver itens pedidos', order_path(order), method: 'get', class: "text-primary"%></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+
+
+    </div>
+
+</div>
+
+<%= render 'layouts/footer' %>

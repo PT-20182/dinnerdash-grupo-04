@@ -13,7 +13,7 @@
                         <div class="card mr-3 mw-100" style="width: 16rem; min-width: 16rem;">
 
                                 <div class="position-relative"> <!-- Necessario para o nome ficar no lugar -->
-                                    <%= image_tag url_for(item.image), class: "card-image-top imgRefeicoes" %>
+                                    <%= image_tag url_for(item.image_attachment_path), class: "card-image-top imgRefeicoes" %>
                                     <div class="position-absolute fixed-bottom nameRefeicoes">
                                         <%= item.name %>
                                     </div>
