@@ -1,9 +1,9 @@
 .bannerbackoff {
-    background-image: url("backofficebanner.jpg");
-    background-color: #CCCCCC;
-    background-blend-mode: multiply;
+    background: #dddddd url("backofficebanner.jpg") no-repeat center;
     background-size: cover;
-    background-repeat: no-repeat;
+    background-color: #a9a9a9;
+    background-blend-mode: multiply;
+    
     
     width: 100%;
     height: 55vh;
