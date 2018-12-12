@@ -1,0 +1,29 @@
+<div class="bannerHome text-white">
+    <div class="h-100 container d-flex d-flex flex-column justify-content-between">
+        <%= render  "layouts/logo" %>
+        
+        <div class="mb-4">
+            <% if user_signed_in? %>
+                <h1 class="h1_title">Bem-vindo, <%= current_user.name %></h1>
+                <h3 class="h3_title">Monte o seu prato, escolha
+            <% else %>
+                <h1 class="h1_title">Monte seu prato</h1>
+                <h3 class="h3_title">Escolha
+            <% end %> 
+                    seu/sua <% @meal_categories.first(5).each do |cat| %>
+                        <%= cat.name.downcase %>
+                        <%= "," unless cat == @meal_categories.find(5) %>
+                        <% if cat == @meal_categories.first %> <br> <% end %>
+                    <% end %>
+                </h3>
+
+        </div>
+    </div>
+</div>
+
+<% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+<% end %>
