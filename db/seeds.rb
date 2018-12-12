@@ -17,8 +17,11 @@ MealCategory.create(name: "Metállica")
 MealCategory.create(name: "Massas")
 MealCategory.create(name: "Japonesa")
 
+# Seeds for orders
+Order.create(price: 42.00, user_id: 1, situation_id: 1)
+Order.create(price: 43.00, user_id: 1, situation_id: 2)
+
 # Seeds for Situation
-Situation.create(description: "em andamento")
-Situation.create(description: "pago")
+Situation.create(description: "pendente")
 Situation.create(description: "cancelado")
 Situation.create(description: "confirmado")
