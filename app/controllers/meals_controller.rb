@@ -1,8 +1,8 @@
 class MealsController < ApplicationController
-  before_action :current_meal, only: [:edit, :update, :destroy]
-  before_action :set_page, only: [:index]
-  before_action :meal_category, only: [:new, :edit]
   before_action :check_user_admin
+  before_action :current_meal, only: [:edit, :update, :destroy]
+  before_action :meal_category, only: [:new, :edit]
+  before_action :set_page, only: [:index]
 
 
   MEALS_PER_PAGE = 8
@@ -27,14 +27,26 @@ class MealsController < ApplicationController
   end
 
   def edit
-
+    
   end
 
   def update
     if @meal.update(meal_params)
       redirect_to meals_path
     else
-      render 'edit'
+      alert = []
+
+      if meal_params[:name].blank?  
+        alert << "Nome não pode estar em branco"
+      end
+      if meal_params[:price].blank?
+        alert << "Preço não pode estar em branco"
+      
+      elsif meal_params[:price].to_d < 0
+        alert << "Preço não pode ser negativo"
+      end
+
+      redirect_to edit_meal_path(@meal), alert: alert
     end
   end
 

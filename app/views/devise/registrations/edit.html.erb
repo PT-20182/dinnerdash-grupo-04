@@ -14,10 +14,11 @@
     </div>
 </div> <!-----------------------------------------END_BANNER_PERFIL-->
 
+<div class="container">
 <% resource.errors.full_messages.each do |msg| %>
-    <span class="m-0 alert alert-danger align-self-start"><%= msg %></span>
+    <label class="mt-4 m-0 alert alert-danger align-self-start"><%= msg %></label>
 <% end %>
-
+</div>
 <%= form_for(resource, 
                 as: resource_name, 
                 url: registration_path(resource_name), 
