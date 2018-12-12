@@ -2,6 +2,7 @@
     <style type="text/css">
         .h1_logo {
             font-size: 1.8em;
+            font-family: fontAmaranth, sans-serif;
         }
         .logoD a, .logoD a:hover {
             color: inherit;
@@ -16,7 +17,7 @@
 
 <div class="logoD navbar container d-flex align-items-center text-white">
     <%= link_to  "dinnerdash", root_path(), class: "h1_logo" %>
-    
+
     <div class="ml-auto d-flex justify-content-around">
         <% if user_signed_in? %>
             <% if current_user.admin %>
