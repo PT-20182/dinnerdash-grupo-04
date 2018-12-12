@@ -1,10 +1,18 @@
 <%= render 'layouts/banner' %>
 
+<% if alert %>
+    <div class="container">
+        <% alert.each do |msg| %>
+            <label class="m-0 mt-4 alert alert-danger align-self-start"><%= msg %></label>
+        <% end %>
+    </div>
+<% end %>
+
 <div class="container">
     <h3 class="h3_edit_category text-muted mt-4">Nova refeição</h3>
     <hr>
     
-    <%= form_with model: @meal, class: "text-secondary mb-5" do |form| %>
+    <%= form_with model: @meal, local: true, class: "text-secondary mb-5" do |form| %>
 
         <div class="d-flex">
             <div class="form-group w-50">

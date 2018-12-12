@@ -21,7 +21,19 @@ class MealsController < ApplicationController
     if meal.save
       redirect_to meals_path
     else
-      render 'new'
+      alert = []
+
+      if meal_params[:name].blank?  
+        alert << "Nome não pode estar em branco"
+      end
+      if meal_params[:price].blank?
+        alert << "Preço não pode estar em branco"
+      
+      elsif meal_params[:price].to_d < 0
+        alert << "Preço não pode ser negativo"
+      end
+
+      redirect_to new_meal_path, alert: alert
     end
 
   end
