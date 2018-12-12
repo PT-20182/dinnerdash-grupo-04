@@ -2,6 +2,7 @@ class MealsController < ApplicationController
   before_action :check_user_admin
   before_action :current_meal, only: [:edit, :update, :destroy]
   before_action :meal_category, only: [:new, :edit]
+  before_action :is_any_meal_category?, only: [:new]
   before_action :set_page, only: [:index]
 
 
@@ -77,6 +78,12 @@ class MealsController < ApplicationController
 
 
  private
+
+ def is_any_meal_category?
+    if MealCategory.count == 0
+      redirect_to meals_path, alert: "Não é possível criar refeições sem categorias existentes" 
+    end
+ end
 
  def meal_params
     params.require(:meal).permit(:name, :meal_category_id, :description, :price, :image, :available)

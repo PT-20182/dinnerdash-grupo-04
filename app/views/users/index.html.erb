@@ -16,7 +16,12 @@
         <tbody>
             <% @users.each do |user| %>
                 <tr>
-                    <td><%= user.name %></td>
+                    <td>
+                        <% if user.admin %>
+                            <span class="bg-success text-white rounded px-1">admin</span>
+                        <% end %>
+                        <%= user.name %>
+                    </td>
                     <td><%= user.email %></td>
                     <td><%= user.created_at.strftime("%d/%m/%Y") %></td>
                     <td><%= link_to 'Edit', edit_user_path(user), method: 'get', class: "text-warning"%></td>

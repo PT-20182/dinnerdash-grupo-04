@@ -4,11 +4,16 @@
 
 <%= render 'layouts/banner' %>
 
+<% if alert %>
+<div class="container">
+    <label class="m-0 mt-4 alert alert-danger align-self-start"><%= alert %></label>
+</div>
+<% end %>
+
 <div class="container d-flex flex-column justify-content-between" id="start">
 
     <% if Meal.count == 0 %>
-        <h3 class="">Comece agora a criar suas refeições!</h3>
-        <div class="breaklineRefeicoes"></div>
+        <h3 class="text-secondary mt-4">Comece a criar suas refeições!</h3>
     <% end %>
 
     <% @meals.in_groups_of(4, false).each do |group| %>
