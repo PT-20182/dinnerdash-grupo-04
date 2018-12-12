@@ -15,7 +15,7 @@
 </div> <!-----------------------------------------END_BANNER_PERFIL-->
 
 <% resource.errors.full_messages.each do |msg| %>
-    <p class="m-0 alert alert-danger align-self-start"><%= msg %></p>
+    <span class="m-0 alert alert-danger align-self-start"><%= msg %></span>
 <% end %>
 
 <%= form_for(resource, 

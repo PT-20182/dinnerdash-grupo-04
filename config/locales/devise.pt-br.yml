@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Traduções adicionais em https://github.com/plataformatec/devise/wiki/I18n
 
 # Salve este arquivo em 'config/locales', como 'devise.pt-BR.yml'
@@ -7,7 +5,6 @@
 # config.i18n.default_locale = :'pt-BR'
 # Para a nova configuração fazer efeito, reinicie o servidor
 
->>>>>>> 2bb7a5b134d69f90beae58d368f11be8c3ef91d3
 pt-br:
   devise:
     confirmations:

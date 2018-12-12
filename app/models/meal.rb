@@ -1,7 +1,6 @@
 class Meal < ApplicationRecord
-    validates :name, presence: true
-    validates :price, presence: true
-    validates :meal_category_id, presence: true
+    validates_presence_of :name, :price, :meal_category_id
+    validates :price, numericality: {:greater_than_or_equal_to => 0}
 
     belongs_to :meal_category
 
