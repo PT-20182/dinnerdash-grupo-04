@@ -6,5 +6,5 @@ class Meal < ApplicationRecord
 
     has_one_attached :image
 
-    has_many :order_meals
+    has_and_belongs_to_many :orders
 end

@@ -54,14 +54,14 @@ ActiveRecord::Schema.define(version: 2018_12_11_140032) do
     t.index ["meal_category_id"], name: "index_meals_on_meal_category_id"
   end
 
-  create_table "order_meals", force: :cascade do |t|
+  create_table "meals_orders", id: false, force: :cascade do |t|
     t.integer "quantity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.bigint "order_id"
     t.bigint "meal_id"
-    t.index ["meal_id"], name: "index_order_meals_on_meal_id"
-    t.index ["order_id"], name: "index_order_meals_on_order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["meal_id"], name: "index_meals_orders_on_meal_id"
+    t.index ["order_id"], name: "index_meals_orders_on_order_id"
   end
 
   create_table "orders", force: :cascade do |t|
