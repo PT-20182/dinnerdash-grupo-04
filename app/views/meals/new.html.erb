@@ -3,7 +3,7 @@
 <div class="container">
     <h3 class="h3_edit_category text-muted mt-4">Nova refeição</h3>
     <hr>
-    
+
     <%= form_with model: @meal, class: "text-secondary mb-5" do |form| %>
 
         <div class="d-flex">
@@ -43,7 +43,7 @@
             <%= form.check_box :available, {}, "true", "false" %>
             <%= form.label :refeição_disponível_no_cardápio %>
         </div>
-        
+
         <%= form.submit "Criar refeição", class: "btn btn-success px-4" %>
         <%= link_to  "Voltar", meals_path, class: "btn btn-secondary px-5 ml-3" %>
 

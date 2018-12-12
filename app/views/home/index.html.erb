@@ -9,15 +9,16 @@
     </div>
 </div>
 
-<div class="container">
+<div class="container mb-5">
     <div class="firstRow">
-        <h3>Refeições metállicas \m/</h3>
-        <% query_meals("Metállica").in_groups_of(4, false).each do |group| %> <!-- Seleciona apenas as refeicoes metallicas e mostra apenas 4/linha -->
-            
+        <% @meal_categories.each do |category| %>
+        <h2 style="<%= 'display:none' if category.meals.count < 1 %>" class ="mt-5"><%= category.name %></h3>
+        <% query_meals(category.name).in_groups_of(4, false).each do |group| %> <!-- Seleciona apenas as refeicoes metallicas e mostra apenas 4/linha -->
+
             <div class="d-flex flex-column align-itens-center">
-                <div class="d-flex justify-content-start w-100 mt-4">                        
+                <div class="d-flex justify-content-start w-100 mt-4">
                     <% group.each do |item| %>
-                        <div class="card mr-3" style="width: 18rem;">
+                        <div class="card mr-3 mw-100" style="width: 16rem; min-width: 16rem;">
 
                                 <div class="position-relative"> <!-- Necessario para o nome ficar no lugar -->
                                     <%= image_tag url_for(item.image), class: "card-image-top imgRefeicoes" %>
@@ -37,8 +38,13 @@
                                                 por porção</span>
                                     </div>
 
+                                    <div class="card-text text-secondary">
+                                        <span>Quantidade</span>
+                                        <!-- quantidade select -->
+                                    </div>
+
                                     <div class="d-flex justify-content-between">
-                                        <%= button_to 'adcionar ao meu prato', edit_meal_path(item), method: 'get',
+                                        <%= button_to 'adicionar ao meu prato', edit_meal_path(item), method: 'get',
                                             class: 'btn btn-success btn-small text-white px-4' %>
                                     </div>
                                 </div>
@@ -47,5 +53,40 @@
                 </div>
             </div>
         <% end %>
+        <% end %>
     </div>
 </div>
+
+<div class="dropdown-divider mb-5"></div>
+
+<div class="container d-flex flex-column">
+    <h2 class="h2_title mb-3">Finalizou seu prato?</h3>
+    <h4 class="h4_title text-secondary">Confira os itens pedidos antes de finalizar o pedido</h5>
+</div>
+
+<div class="container mb-5">
+    <div class="firstRow">
+
+        <!-- Items disponiveis no carrinho -->
+
+    </div>
+</div>
+
+<div class="mb-5 mx-auto" style="width: 61%;">
+    <div class="dropdown-divider"></div>
+</div>
+
+<div class="container d-flex flex-column">
+    <h2 class="h2_title mb-3">Preço total do pedido: </h2>
+    <h4 class="h4_title text-secondary mb-5">Para finalizar o seu pedido, entre com sua conta ou faça o seu cadastro.</h4>
+
+    <div class="container d-flex flex-row mb-5">
+        <%= button_to 'entrar com minha conta', new_user_session_path,
+            class: 'btn btn-success btn-small text-white mr-3' %>
+
+        <%= button_to 'fazer o meu cadastro', new_user_session_path,
+            class: 'btn btn-success btn-small text-white px-4 bg-light text-success' %>
+    </div>
+</div>
+
+<%= render 'layouts/footer' %>
