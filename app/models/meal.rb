@@ -4,6 +4,10 @@ class Meal < ApplicationRecord
 
     belongs_to :meal_category
 
+    def image_attachment_path
+        image.attached? ? image : 'miojo.png'
+    end
+
     has_one_attached :image
 
     has_and_belongs_to_many :orders

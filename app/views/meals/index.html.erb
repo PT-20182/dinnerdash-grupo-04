@@ -26,7 +26,7 @@
 
                         <div class="position-relative"> <!-- Necessario para o nome ficar no lugar -->
                             <div class="<%= 'unavailable' if !item.available %>">
-                                <%= image_tag url_for(item.image), class: "card-image-top imagemRefeicoes" %>
+                                <%= image_tag url_for(item.image_attachment_path), class: "card-image-top imagemRefeicoes" %>
                             </div>
 
                             <span class="caption" style="<%= 'display:none' if item.available %>">Refeição indisponível</span>
