@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :current_user_by_id, only: [:edit, :update, :destroy]
-  before_action :check_user_admin
+  before_action :check_user_admin, except: [:show]
 
   USERS_SIZE = 8
 
@@ -13,21 +13,25 @@ class UsersController < ApplicationController
 
   end
 
+  def show
+      @user = User.includes(:orders).find(current_user.id)
+  end
+
   def update
     if @user.update(user_params)
       redirect_to users_path
     else
       alert = []
 
-      if user_params[:name].blank?  
+      if user_params[:name].blank?
         alert << "Nome não pode estar em branco"
       end
-      if user_params[:email].blank?  
+      if user_params[:email].blank?
         alert << "Email não pode estar em branco"
       end
 
       redirect_to edit_user_path(@user), alert: alert
-    end 
+    end
   end
 
   def destroy

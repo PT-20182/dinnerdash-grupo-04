@@ -3,4 +3,7 @@ class HomeController < ApplicationController
       @meal_categories = MealCategory.all
       @meals = Meal.all
   end
+
+  def show
+  end
 end

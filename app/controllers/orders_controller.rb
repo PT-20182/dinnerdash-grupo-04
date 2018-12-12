@@ -18,10 +18,11 @@ class OrdersController < ApplicationController
       redirect_to orders_path
     else
       redirect_to edit_order_path(@order)
-    end 
+    end
   end
 
   def show
+      
   end
 
   def destroy
@@ -30,7 +31,7 @@ class OrdersController < ApplicationController
     redirect_to orders_path
   end
 
-  private 
+  private
 
   def current_order
     @order = Order.find(params[:id])
