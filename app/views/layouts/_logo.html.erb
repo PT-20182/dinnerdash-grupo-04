@@ -8,7 +8,7 @@
             text-decoration: none;
 
             padding: 1em;
-        } 
+        }
     </style>
 </head>
 
@@ -22,11 +22,11 @@
             <% if current_user.admin %>
                 <%= link_to  "backoffice", meals_path, class: "text-warning font-weight-bold" %>
             <% end %>
-            <%= link_to  "perfil", edit_user_registration_path %>
-            <%= link_to  "Sair", destroy_user_session_path, method: :delete %>
+            <%= link_to  "perfil", edit_user_registration_path, class: "text-light" %>
+            <%= link_to  "sair", destroy_user_session_path, method: :delete, class: "text-light" %>
         <% else %>
-            <%= link_to  "Entrar", new_user_session_path %>
-            <%= link_to  "Cadastrar", new_user_registration_path %>
+            <%= link_to  "entrar", new_user_session_path, class: "text-light" %>
+            <%= link_to  "cadastrar", new_user_registration_path, class: "text-light" %>
         <% end %>
     </div>
 </div>

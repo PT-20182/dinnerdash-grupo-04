@@ -4,7 +4,7 @@
 
 <%= render  "layouts/banner" %>
 
-<div class="container mt-4 mb-5 text-secondary d-flex flex-column">
+<div class="container mt-4 mb-5 text-secondary d-flex flex-column" id="start">
     <table class="table">
         <thead class="thead-light">
             <tr>
@@ -16,11 +16,16 @@
         <tbody>
             <% @users.each do |user| %>
                 <tr>
-                    <td><%= user.name %></td>
+                    <td>
+                        <% if user.admin %>
+                            <span class="bg-success text-white rounded px-1">admin</span>
+                        <% end %>
+                        <%= user.name %>
+                    </td>
                     <td><%= user.email %></td>
                     <td><%= user.created_at.strftime("%d/%m/%Y") %></td>
-                    <td><%= link_to 'Edit', edit_user_path(user), method: 'get', class: "text-warning"%></td>
-                    <td><%= link_to 'Remove', user_path(user), method: 'delete', data: { confirm: 'Are you sure?' }, class: "text-danger" %></td>
+                    <td><%= link_to 'editar', edit_user_path(user), method: 'get', class: "text-warning"%></td>
+                    <td><%= link_to 'excluir', user_path(user), method: 'delete', data: { confirm: 'Are you sure?' }, class: "text-danger" %></td>
                 </tr>
             <% end %>
         </tbody>
@@ -30,12 +35,12 @@
         <%= link_to "&laquo;".html_safe,
             if @page > 0 then users_path(page: @page-1, anchor: "start") end %>
 
-        <% for i in 0..MealCategory.count/8.ceil %>
+        <% for i in 0..User.count/8.ceil %>
             <%=  link_to i+1, users_path(page: i, anchor: "start"), class: "active" if current_class?(users_path(page: @page))  %>
         <% end %>
 
         <%= link_to "&raquo;".html_safe,
-            if @page < MealCategory.count/8.ceil then
+            if @page < User.count/8.ceil then
                 users_path(page: @page+1, anchor: "start")
             else
                 users_path(page: @page, anchor: "start") end %>

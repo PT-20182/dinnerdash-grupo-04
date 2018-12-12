@@ -14,13 +14,19 @@
     </div>
 </div> <!-----------------------------------------END_BANNER_PERFIL-->
 
+<div class="container">
+<% resource.errors.full_messages.each do |msg| %>
+    <label class="mt-4 m-0 alert alert-danger align-self-start"><%= msg %></label>
+<% end %>
+</div>
 <%= form_for(resource, 
                 as: resource_name, 
                 url: registration_path(resource_name), 
                 html: { method: :put, 
-                        class: "container mb-5 d-flex flex-wrap flex-column form_perfil" }) do |f| %> <!-----------------FORM-->
+                        class: "container mb-5 d-flex flex-wrap flex-column form_perfil",
+                        :novalidate => 'novalidate' }) do |f| %> <!-----------------FORM-->
     
-    <%= devise_error_messages! %>
+    
     
     <!-- Confirmacao de email | Ainda sem lugar especifico para ficar -->
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -30,19 +36,19 @@
     
     <div class="d-flex flex-row justify-content-between"> <!--_Linha_com_dois_inputs_--> 
         <div class="field form-group w-50 m-2">
-            <%= f.label :nome %><br />
+            <%= f.label :nome %>
             <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
             <small class="form-text"></small>
         </div>
         <div class="field form-group w-50 m-2">
-            <%= f.label :email %><br />
+            <%= f.label :email %>
             <%= f.email_field :email, autocomplete: "email", class: "form-control" %>
         </div>
     </div> <!---------------------------------------------_Fim_Linha_com_dois_inputs_--> 
 
     <div class="d-flex flex-row justify-content-between"> <!--_Linha_com_dois_inputs_--> 
         <div class="field form-group w-50 m-2">
-            <label>Nova Senha <small>(deixe em branco caso não queira alterar)</small></label><br />
+            <label>Nova Senha <small>(deixe em branco caso não queira alterar)</small></label>
             <%= f.password_field :password, 
                                     autocomplete: "new-password", 
                                     placeholder: "Nova Senha", 
@@ -53,7 +59,7 @@
             <% end %>
         </div>
         <div class="field form-group w-50 m-2">
-            <%= f.label :confirmar_nova_senha %><br />
+            <%= f.label :confirmar_nova_senha %>
             <%= f.password_field :password_confirmation, 
                                     autocomplete: "new-password", 
                                     placeholder: "Confirmar Nova Senha", 
@@ -62,7 +68,7 @@
     </div> <!---------------------------------------------_Fim_Linha_com_dois_inputs_--> 
     
     <div class="field form-group w-50 m-2 mb-3 align-self-center"> <!--_Linha_com_1_input_-->
-        <%= f.label :senha_atual %> <small>(por questão de segurança)</small><br />
+        <%= f.label :senha_atual %> <small>(por questão de segurança)</small>
         <%= f.password_field :current_password, 
                                 autocomplete: "current-password", 
                                 placeholder: "Senha Atual", 

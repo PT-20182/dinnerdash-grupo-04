@@ -11,9 +11,9 @@ class ApplicationController < ActionController::Base
         devise_parameter_sanitizer.permit(:account_update, keys: [:name, :admin])
     end
 
-    def check_user_admin # Falta mandar alerta de "Acesso Bloqueado!"
+    def check_user_admin 
         unless user_signed_in? && current_user.admin
-            redirect_to :root
+            redirect_to :root, alert: "Acesso Bloqueado!"
         end
     end
 end

@@ -6,15 +6,19 @@
 <div class="screen">
     <%= render  "layouts/imgRegisSessions" %>
 
-    <div class="boxRight">
+    <div class="boxRight text-secondary">
         <div class="boxRightInner mx-auto">
-            <%= link_to  "dinnerdash", root_path, class: "title mb-5" %>
+
+            <% if alert then mt=4 else mt=5 end %>
+            <%= link_to  "dinnerdash", root_path, class: "title mb-#{mt}" %>
+
+            <p class="mb-3 text-danger align-self-start"><%= alert %></p>
 
             <%= form_for( resource, as: resource_name,
-                          url: session_path(resource_name), html: {class: "w-100"} ) do |form| %>
+                          url: session_path(resource_name), html: {class: "w-100", :novalidate => 'novalidate'} ) do |form| %>
 
                 <div class="form-group">
-                    <label for="signup_email" class="formText">E-mail</label>
+                    <%= form.label :email %>
                     <%= form.email_field  :email,
                                           autofocus: true,
                                           autocomplete: "email",
@@ -24,7 +28,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="signup_password" class="formText">Senha</label>
+                    <%= label_tag :password, "Senha" %>
                     <%= form.password_field :password,
                                             autocomplete: "current-password",
                                             placeholder: "Sua senha",
