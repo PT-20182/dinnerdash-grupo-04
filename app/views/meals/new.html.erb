@@ -32,7 +32,9 @@
         <div class="d-flex mt-3">
             <div class="form-group w-50">
                 <%= form.label :preço %>
-                <%= form.text_field :price, class: "form-control" %>
+                <%= form.number_field   :price, value: number_to_currency(form.object.price.to_f,
+                                        delimiter: '.', separator: ',', unit: 'R$'), step: 0.01,
+                                        class: "form-control" %>
             </div>
             <div class="form-group w-50 ml-2">
                 <%= form.label :foto %>
@@ -49,7 +51,7 @@
             <%= form.check_box :available, {}, "true", "false" %>
             <%= form.label :refeição_disponível_no_cardápio %>
         </div>
-        
+
         <%= form.submit "Criar refeição", class: "btn btn-success px-4" %>
         <%= link_to  "Voltar", meals_path, class: "btn btn-secondary px-5 ml-3" %>
 
