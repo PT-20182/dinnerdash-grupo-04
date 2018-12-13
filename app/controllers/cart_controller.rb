@@ -3,14 +3,14 @@ class CartController < ApplicationController
 		@items = Meal.find(session[:cart])
 		@user = User.includes(:orders).find(current_user.id)
 		@meal_categories = MealCategory.all
-	end 
-	
+	end
+
 	def add_item
 		@item = params[:id]
-		set_cart.push(@item)    
+		set_cart.push(@item)
    		redirect_to root_path
 	end
-	
+
 	def remove_item
 		@item = params[:id]
 		set_cart.delete(@item)

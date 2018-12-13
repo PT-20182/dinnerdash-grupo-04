@@ -1,30 +1,29 @@
 <!--<h1>Eu sou muito lindo</h1>
 
-<% @items.each do |meal| %>
-<p><%= meal.name %></p> 
-<%= link_to  "remover", remove_item_path(id: meal.id), method: :put %>
+<%= current_user.id %>
+
+<% current_user.orders.each do |item| %>
+<%= number_with_precision(item.price, precision: 2,
+separator: ',', delimiter: '.') %>
+
 <% end %>-->
 
 <%= render  "layouts/banner_home" %>
 
-<div class="container-fluid bg-warning p-1 mb-5">
 
-</div>
 
-<div class="container d-flex flex-column">
+<div class="container d-flex flex-column mt-5">
     <h2 class="h2_title mb-3 text-dark" style="font-size: 2.5em;">O seu pedido:</h2>
     <h4 class="h4_title text-secondary">Confira os itens pedidos antes de finalizar o pedido.</h4>
 </div>
 
-<%= current_user.id %>
-
-<% current_user.orders.each do |item| %>
-    <%= number_with_precision(item.price, precision: 2,
-                                    separator: ',', delimiter: '.') %>
-<% end %>
 
 <div class="container">
 
+    <% @items.each do |meal| %>
+    <p><%= meal.name %></p>
+    <%= link_to  "remover", remove_item_path(id: meal.id), method: :put %>
+    <% end %>
     <!-- itens dentro do carrinho -->
 
 </div>
