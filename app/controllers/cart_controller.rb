@@ -12,7 +12,9 @@ class CartController < ApplicationController
 			@total_price = @total_price + meal.price
 		end
 
-		@last_items = current_user.orders.last.meals
+		unless current_user.orders.blank?
+			@last_items = current_user.orders.last.meals
+		end
 	end
 
 	def add_item

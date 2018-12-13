@@ -95,6 +95,8 @@
     <h1 class="text-dark mb-3">Pedidos anteriores</h1>
 
     <div class="container mt-4 mb-5 text-secondary d-flex flex-column">
+        
+        <% unless current_user.orders.blank? %>
         <table class="table">
             <thead class="thead">
                 <tr>
@@ -127,6 +129,9 @@
                 <% end %>
             </tbody>
         </table>
+        <% else %>
+            <p class="alert alert-primary">Você ainda não fez pedidos</p>
+        <% end %>
 
 
     </div>
