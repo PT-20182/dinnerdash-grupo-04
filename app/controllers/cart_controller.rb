@@ -17,6 +17,10 @@ class CartController < ApplicationController
 		redirect_to root_path
 	end
 
+	def delete
+		session.delete(:cart)
+	end
+
 	private
 
 	def set_cart
