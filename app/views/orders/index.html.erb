@@ -46,12 +46,12 @@
         <%= link_to "&laquo;".html_safe,
             if @page > 0 then orders_path(page: @page-1, anchor: "start") end %>
 
-        <% for i in 0...Order.count/8.ceil %>
+        <% for i in 0..(Order.count-1)/8.ceil %>
             <%=  link_to i+1, orders_path(page: i, anchor: "start"), class: "active" if current_class?(orders_path(page: @page))  %>
         <% end %>
 
         <%= link_to "&raquo;".html_safe,
-            if @page < Order.count/8.ceil then
+            if @page < (Order.count-1)/8.ceil then
                 orders_path(page: @page+1, anchor: "start")
             else
                 orders_path(page: @page, anchor: "start") end %>
