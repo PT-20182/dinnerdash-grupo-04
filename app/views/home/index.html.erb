@@ -66,21 +66,8 @@
     <p class="text-secondary">Confira os itens pedidos antes de finalizar o pedido</p>
 </div>
 
-<<<<<<< HEAD
 <div class="container mb-5">
     <%= render "layouts/cart" %>
-=======
-<div class="container d-flex mb-5">
-    <div class="firstRow">
-
-        <% @items.each do |meal| %>
-        <p><%= meal.name %></p>
-        <%= link_to  "remover", remove_item_path(id: meal.id), method: :put %>
-        <% end %>
-        <!-- Items disponiveis no carrinho -->
-
-    </div>
->>>>>>> responsive_button
 </div>
 
 <div class="container"><hr class="border-bottom"></div>
