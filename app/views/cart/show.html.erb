@@ -3,7 +3,7 @@
         <%= render  "layouts/logo" %>
 
         <div class="mb-4">
-            <h1 class="h1_title">Bem-vindo, <%= current_user.name %>     <%=current_user.id%></h1>
+            <h1 class="h1_title">Bem-vindo, <%= current_user.name %></h1>
             <h3 class="h3_title">Neste espaço você pode finalizar o seu pedido.</h3>
         </div>
     </div>
@@ -20,7 +20,7 @@
 
 
 <div class="container d-flex flex-column mt-5">
-    <h2 class="h2_title mb-3 text-dark" style="font-size: 2.5em;">O seu pedido:</h2>
+    <h2 class="h2_title mb-3 text-dark" style="font-size: 2.5em;" id="cart">O seu pedido:</h2>
     <p class="text-secondary">Confira os itens pedidos antes de finalizar o pedido</p>
 </div>
 
@@ -44,9 +44,9 @@
 
     <div class="d-flex flex-column ml-5">
         <h2 class="h2_title mb-3">Preço total do pedido:
-            <!-- preco total -->
+            <span class="text-success">R$ <%= number_with_precision(@total_price, precision: 2, separator: ',', delimiter: '.') %></span>
         </h2>
-        <%= link_to 'finalizar e pagar', :root, #sera modificado ainda
+        <%= link_to 'finalizar e pagar', orders_path(price: @total_price), method: :post,
             class: 'btn btn-success text-white w-50'%>
     </div>
 </div>
@@ -56,11 +56,6 @@
 <div class="container">
     <h1 class="text-dark mb-3">Pedidos anteriores</h1>
 
-    <% current_user.orders.each do |item| %>
-    <%= number_with_precision(item.price, precision: 2,
-        separator: ',', delimiter: '.') %>
-
-    <% end %>
     <div class="container mt-4 mb-5 text-secondary d-flex flex-column">
         <table class="table">
             <thead class="thead">
