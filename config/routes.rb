@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   put "/add_item", to: 'cart#add_item', as: 'add_item'
   put "/remove_item", to: 'cart#remove_item', as: 'remove_item'
   get "/cart", to: 'cart#show', as: 'cart'
+  put "/delete", to: 'cart#delete', as: 'delete'
 
   get 'home/index'
   get 'home', action: :show, controller: 'users'
