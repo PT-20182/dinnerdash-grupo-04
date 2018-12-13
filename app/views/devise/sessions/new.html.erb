@@ -36,12 +36,7 @@
                                             class: "form-control"%>
                 </div>
 
-                <% if devise_mapping.rememberable? -%>
-                  <div class="field">
-                    <%= form.check_box :remember_me %>
-                    <%= form.label "Lembrar meu e-mail" %>
-                  </div>
-                <% end -%>
+                
 
                 <%= form.submit "fazer login", class: "btn btn-success w-100 mt-1 mb-4 p-2" %>
             <% end %>
