@@ -31,10 +31,13 @@
                                                 por porção</span>
                                     </div>
 
-                                    <!--<div class="card-text text-secondary">
+                                    <div class="card-text text-secondary">
                                         <span>Quantidade</span>
-                                        
-                                    </div>-->
+                                        <%= form_tag(add_item_path, method: :put) do %>
+                                            <%= hidden_field_tag :id, item.id %>
+                                            <%= select_tag :quantity, options_for_select(1..20)  %>
+
+                                    </div>
 
                                     <div class="d-flex justify-content-between">
                                         <% if @items.include?(item) then %>
@@ -44,8 +47,10 @@
                                                 <span id="span" class="remove">&#x2717; remover do prato</span>
                                             <% end %>
                                         <% else %>
-                                            <%= link_to 'adicionar ao meu prato', add_item_path(id: item.id, anchor: category.name), method: :put,
+                                            <%= submit_tag 'adicionar ao meu prato',
                                             class: 'btn btn-success btn-small text-white px-4' %>
+                                        <% end %>
+
                                         <% end %>
                                     </div>
                                 </div>

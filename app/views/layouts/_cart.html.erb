@@ -4,7 +4,7 @@
 
 
 <% @items.in_groups_of(2, false).each do |group| %>
-    
+
     <div class="mb-3 w-100 d-flex justify-content-between">
         <% group.each do |meal| %>
 
@@ -14,12 +14,12 @@
 
                     <div class="ml-2 d-flex flex-column justify-content-between">
                         <h5 class="text-dark"><%= meal.name %></h5>
-                        
+
                         <div class="text-secondary">
                             <!-- <p class="m-0">Quantidade: 2</p> -->
-                            <p class="m-0">Preço unitário: R$ <%= number_with_precision(meal.price, 
-                                                                                        precision: 2, 
-                                                                                        separator: ',', 
+                            <p class="m-0">Preço unitário: R$ <%= number_with_precision(meal.price,
+                                                                                        precision: 2,
+                                                                                        separator: ',',
                                                                                         delimiter: '.' )%></p>
                             <!-- <p class="m-0">Preço total: X</p> -->
                         </div>
