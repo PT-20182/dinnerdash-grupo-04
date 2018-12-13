@@ -1,0 +1,9 @@
+.bannerHome {
+    background: #dddddd url("jay-wennington-2065.jpg") no-repeat center;
+    background-size: cover;
+    background-color: #909090;
+    background-blend-mode: multiply;
+    
+    width: 100%;
+    height: 60vh;
+}

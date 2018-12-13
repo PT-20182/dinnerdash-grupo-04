@@ -1,0 +1,47 @@
+.cima_perfil_img {
+    background-image: url("./restaurant.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover; 
+    
+    height: 66vh;
+
+    filter: brightness(.33);
+}
+
+.cima_perfil {
+    position: absolute;
+    top: 0;
+
+    height: 66vh;
+    width: 100%;
+
+    color: white;
+}
+
+.cima_perfil .mytitle {
+    margin-bottom: 3em;
+}
+
+.cima_perfil .mytitle h1 {
+    font-size: 4em;
+}
+
+.cima_perfil .mytitle h4 {
+    font-weight: 0;
+    font-size: 1.6em;
+}
+
+.form_perfil {
+    color: #6B6C6D;
+    
+    margin-top: 2em;
+    margin-bottom:6em;
+}
+
+.form_perfil label {
+    font-size: .9em;
+}
+
+.submit_btn {
+    padding: .4em 8em;
+}

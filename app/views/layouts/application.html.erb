@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
   <head>
-    <title>Dinnerdash</title>
+    <title>dinnerdash - grupo 4</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,8 @@
   </head>
 
   <body>
+    <% session[:cart] ||= [] %>
+
     <%= yield %>
   </body>
 </html>

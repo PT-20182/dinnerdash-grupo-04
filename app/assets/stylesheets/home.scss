@@ -1,0 +1,63 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.imgRefeicoes {
+    display: flex;
+    align-items: flex-end;
+    background-size: cover;
+    background-color: white;
+    height: 25vh;
+    width: 100%;
+}
+
+.nameRefeicoes {
+    display: flex;
+    align-items: center;
+    background-color: #1C1C1C;
+    background-blend-mode: darken;
+    filter: opacity(0.8);
+    width: 100%;
+    margin: 0;
+    height: 5vh;
+    color: white;
+    padding-left: 4%;
+    z-index: 1;
+}
+
+.buttonCart {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.buttonCart:hover {
+    text-decoration: none;
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.buttonCart .remove {
+    display:none;
+}
+
+.buttonCart:hover .adic {
+    display:none;
+}
+
+.buttonCart:hover .remove {
+    display: inline;
+}

@@ -1,0 +1,37 @@
+// Place all the styles related to the meals controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.imagemRefeicoes {
+    display: flex;
+    background-size: cover;
+    height: 20vh;
+    width: 100%;
+}
+
+.unavailable {
+    align-items: center;
+    filter: brightness(50%);
+}
+
+.caption {
+    position: absolute;
+    top: 40%;
+    left: 25%;
+    width: 100%;
+    color: white;
+}
+
+.nomeRefeicoes {
+    display: flex;
+    align-items: center;
+    background-color: #1C1C1C;
+    background-blend-mode: darken;
+    filter: opacity(0.8);
+    width: 100%;
+    margin: 0;
+    height: 5vh;
+    color: white;
+    padding-left: 4%;
+    z-index: 1;
+}

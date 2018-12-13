@@ -1,0 +1,85 @@
+<head>
+    <%= stylesheet_link_tag "pagination" %>
+</head>
+
+<%= render 'layouts/banner' %>
+
+<% if alert %>
+<div class="container">
+    <label class="m-0 mt-4 alert alert-danger align-self-start"><%= alert %></label>
+</div>
+<% end %>
+
+<div class="container d-flex flex-column justify-content-between" id="start">
+
+    <% if Meal.count == 0 %>
+        <h3 class="text-secondary mt-4">Comece a criar suas refeições!</h3>
+    <% end %>
+
+    <% @meals.in_groups_of(4, false).each do |group| %>
+
+        <div class="d-flex flex-column align-itens-center">
+            <div class="d-flex justify-content-start w-100 mt-4">
+
+                <% group.each do |item| %>
+                    <div class="card mr-3 mw-100" style="width: 16rem; min-width: 16rem;">
+
+                        <div class="position-relative"> <!-- Necessario para o nome ficar no lugar -->
+                            <div class="<%= 'unavailable' if !item.available %>">
+                                <%= image_tag url_for(item.image_attachment_path), class: "card-image-top imagemRefeicoes" %>
+                            </div>
+
+                            <span class="caption" style="<%= 'display:none' if item.available %>">Refeição indisponível</span>
+
+                            <div class="position-absolute fixed-bottom nomeRefeicoes">
+                                <%= item.name %>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="card-text text-secondary">
+                                <%= item.description %>
+                            </div>
+
+                            <div class="card-text text-success my-2">
+                                <span>  R$ <%= number_with_precision(item.price, precision: 2,
+                                                                     separator: ',', delimiter: '.') %>
+                                        por porção</span>
+                            </div>
+
+                            <div class="d-flex justify-content-between">
+                                <%= button_to 'editar', edit_meal_path(item), method: 'get', class: 'btn btn-warning text-white px-4' %>
+                                <%= button_to 'excluir', meal_path(item), method: 'delete', data: { confirm: 'Você tem certeza?' }, class: 'btn btn-danger px-4' %>
+                            </div>
+                        </div>
+                    </div>
+                <% end %>
+
+            </div>
+        </div>
+
+    <% end %>
+
+</div>
+
+<div class="container my-5 d-flex justify-content-between align-items-center">
+    <%= button_to "Nova refeição", new_meal_path, method: 'get', class: 'btn btn-success px-5 py-2' %>
+
+    <div class="paginacao">
+        <%= link_to "&laquo;".html_safe,
+            if @page > 0 then meals_path(page: @page-1, anchor: "start") end %>
+
+        <% for i in 0..(Meal.count-1)/8.ceil %>
+            <%=  link_to i+1, meals_path(page: i, anchor: "start"), class: "active" if current_class?(meals_path(page: @page))  %>
+        <% end %>
+
+        <%= link_to "&raquo;".html_safe,
+            if @page < (Meal.count-1)/8.ceil then
+                meals_path(page: @page+1, anchor: "start")
+            else
+                meals_path(page: @page, anchor: "start") end %>
+
+    </div>
+</div>
+
+<%= render 'layouts/footer' %>

@@ -1,0 +1,31 @@
+<head>
+    <%= stylesheet_link_tag "bannerbackoff" %>
+</head>
+
+<div class="bannerbackoff text-white">
+    <div class="h-100 container d-flex flex-column justify-content-between">
+        <%= render  "layouts/logo" %>
+        
+        <div class="mb-4">
+            <h1 class="h1_title">Backoffice</h1>
+            <h3 class="h3_title">Gerencie pedidos, refeições e mais</h3>
+        </div>
+    </div>
+</div>
+
+<!-- Styling the current page link -->
+<% ord = ""; use = ""; mea = ""; cat = "" %>
+<% current_uri = request.env['PATH_INFO'] %>
+<% if current_uri.include? "/orders" then ord = "text-white" end%>
+<% if current_uri.include? "/users" then use = "text-white" end%>
+<% if current_uri.include? "/meals" then mea = "text-white" end%>
+<% if current_uri.include? "/meal_categories" then cat = "text-white" end%>
+
+<div class="navbarbackoff bg-dark">
+    <div class="container py-2">
+        <%= link_to "Pedidos", orders_path, class: "#{ ord }" %>
+        <%= link_to "Usuários", users_path, class: "ml-4 #{ use }" %>
+        <%= link_to "Refeições", meals_path, class: "ml-4 #{ mea }" %>
+        <%= link_to "Categorias de Refeição", meal_categories_path, class: "ml-4 #{ cat }" %>
+    </div>
+</div>

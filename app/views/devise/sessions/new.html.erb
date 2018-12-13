@@ -1,0 +1,55 @@
+<head>
+    <meta charset="utf-8" />
+    <title>dinnerdash - login</title>
+</head>
+
+<div class="screen">
+    <%= render  "layouts/imgRegisSessions" %>
+
+    <div class="boxRight text-secondary">
+        <div class="boxRightInner mx-auto">
+
+            <% if alert then mt=4 else mt=5 end %>
+            <%= link_to  "dinnerdash", root_path, class: "title mb-#{mt}" %>
+
+            <p class="mb-3 text-danger align-self-start"><%= alert %></p>
+
+            <%= form_for( resource, as: resource_name,
+                          url: session_path(resource_name), html: {class: "w-100", :novalidate => 'novalidate'} ) do |form| %>
+
+                <div class="form-group">
+                    <%= form.label :email %>
+                    <%= form.email_field  :email,
+                                          autofocus: true,
+                                          autocomplete: "email",
+                                          placeholder: "example@website.com", 
+                                          id: "signup_email", 
+                                          class: "form-control" %>
+                </div>
+
+                <div class="form-group">
+                    <%= label_tag :password, "Senha" %>
+                    <%= form.password_field :password,
+                                            autocomplete: "current-password",
+                                            placeholder: "Sua senha",
+                                            id: "signup_password", 
+                                            class: "form-control"%>
+                </div>
+
+                <% if devise_mapping.rememberable? -%>
+                  <div class="field">
+                    <%= form.check_box :remember_me %>
+                    <%= form.label "Lembrar meu e-mail" %>
+                  </div>
+                <% end -%>
+
+                <%= form.submit "fazer login", class: "btn btn-success w-100 mt-1 mb-4 p-2" %>
+            <% end %>
+
+            <p class="hasAccount align-self-start w-100 pt-4">Não possui conta?</p>
+            <%= link_to "fazer meu cadastro", new_user_registration_path,
+                        class: "btn btn-outline-success w-100 p-2" %>
+            
+        </div>
+    </div>
+</div>

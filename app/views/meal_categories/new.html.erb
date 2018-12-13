@@ -1,0 +1,22 @@
+<%= render 'layouts/banner' %>
+
+<div class="container">
+    <h3 class="h3_edit_category text-muted mt-4">Nova categoria de refeição</h3>
+    <hr>
+    
+    <%= form_with model: @meal_category, class: "text-secondary mb-5" do |form| %>
+
+        <div class="d-flex mb-2">
+            <div class="form-group w-100">
+                <%= form.label :nome %>
+                <%= form.text_field :name, class: "form-control" %>
+            </div>
+        </div>
+        
+        <%= form.submit "Atualizar categoria de refeição", class: "btn btn-success px-4" %>
+        <%= link_to  "Voltar", meal_categories_path, class: "btn btn-secondary px-5 ml-3" %>
+
+    <% end %>
+</div>
+
+<%= render 'layouts/footer' %>
