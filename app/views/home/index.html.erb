@@ -38,11 +38,9 @@
 
                                     <div class="d-flex justify-content-between">
                                         <% if @items.include?(item) then %>
-                                            <%= link_to '&#10004; adicionado'.html_safe, add_item_path(id: item.id, anchor: category.name), method: :put,
+                                            <%= link_to '&#10004; adicionado'.html_safe, remove_item_path(id: item.id, anchor: category.name), method: :put,
                                             class: 'btn btn-success btn-small text-white px-4 w-100' %>
                                         <% else %>
-                                            <%= link_to 'adicionar ao meu prato', add_item_path(id: item.id, anchor: category.name), method: :put,
-                                            class: 'btn btn-success btn-small text-white px-4' %>
                                             <%= link_to 'adicionar ao meu prato', add_item_path(id: item.id, anchor: category.name), method: :put,
                                             class: 'btn btn-success btn-small text-white px-4' %>
                                         <% end %>

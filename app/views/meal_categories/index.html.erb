@@ -30,14 +30,14 @@
         </table>
     <% end %>
 
-    <div class="mt-3 d-flex align-items-center justify-content-between">	
+    <div class="mt-3 d-flex align-items-center justify-content-between">
         <%= link_to "Nova categoria de refeição", new_meal_category_path, class: "btn btn-success px-5 py-2" %>
 
         <div class="paginacao">
             <%= link_to "&laquo;".html_safe,
                 if @page > 0 then meal_categories_path(page: @page-1, anchor: "start") end %>
 
-            <% for i in 0..MealCategory.count/8.ceil %>
+            <% for i in 0...MealCategory.count/8.ceil %>
                 <%=  link_to i+1, meal_categories_path(page: i, anchor: "start"), class: "active" if current_class?(meal_categories_path(page: @page))  %>
             <% end %>
 
