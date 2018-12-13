@@ -13,9 +13,9 @@ User.create(name: "Luigi", email: "supermariobro@nintendo.com", password: "S2dai
 User.create(name: "アキラ", email: "shotarokaneda@toho.co.jp", password: "616B697261", admin: false)
 
 # Seeds for meal categories
-MealCategory.create(name: "Metállica")
 MealCategory.create(name: "Massas")
 MealCategory.create(name: "Japonesa")
+MealCategory.create(name: "Metállica")
 
 # Seeds for orders
 Order.create(price: 42.00, user_id: 1, situation_id: 1)
