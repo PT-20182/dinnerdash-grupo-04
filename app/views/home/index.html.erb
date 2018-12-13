@@ -88,7 +88,7 @@
 
     <div class="d-flex mb-5">
         <% if user_signed_in? %>
-            <%= link_to 'finalizar e pagar', :root, # sera modificado ainda
+            <%= link_to 'finalizar e pagar', cart_path,
                 class: 'btn btn-success text-white mr-3' %>
         <% else %>
             <%= button_to 'entrar com minha conta', new_user_session_path,

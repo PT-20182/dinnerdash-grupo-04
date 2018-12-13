@@ -1,15 +1,22 @@
-<!--<h1>Eu sou muito lindo</h1>
+<div class="bannerUserHome text-white">
+    <div class="h-100 container d-flex d-flex flex-column justify-content-between">
+        <%= render  "layouts/logo" %>
 
-<%= current_user.id %>
+        <div class="mb-4">
+            <h1 class="h1_title">Bem-vindo, <%= current_user.name %>     <%=current_user.id%></h1>
+            <h3 class="h3_title">Neste espaço você pode finalizar o seu pedido.</h3>
+        </div>
+    </div>
+</div>
 
-<% current_user.orders.each do |item| %>
-<%= number_with_precision(item.price, precision: 2,
-separator: ',', delimiter: '.') %>
+<div class="container-fluid bg-warning p-1"></div>
 
-<% end %>-->
-
-<%= render  "layouts/banner_home" %>
-
+<% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+<% end %>
 
 
 <div class="container d-flex flex-column mt-5">
@@ -53,6 +60,11 @@ separator: ',', delimiter: '.') %>
 <div class="container">
     <h1 class="text-dark mb-3">Pedidos anteriores</h1>
 
+    <% current_user.orders.each do |item| %>
+    <%= number_with_precision(item.price, precision: 2,
+        separator: ',', delimiter: '.') %>
+
+    <% end %>
     <div class="container mt-4 mb-5 text-secondary d-flex flex-column">
         <table class="table">
             <thead class="thead">
