@@ -4,4 +4,5 @@ module HomeHelper
                                                   AND meals.meal_category_id = meal_categories.id
                                                   AND meal_categories.name = ?", meal_category_name)
     end
+    
 end

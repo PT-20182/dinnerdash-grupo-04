@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   put "/delete", to: 'cart#delete', as: 'delete'
 
   get 'home/index'
-  get 'home', action: :show, controller: 'users'
 
   root 'home#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

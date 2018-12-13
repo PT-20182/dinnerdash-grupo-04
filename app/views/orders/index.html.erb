@@ -20,7 +20,7 @@
             <% @orders.each do |order| %>
                 <tr>
                     <td><%= order.id %></td>
-                    
+
                         <% case order.situation_id %>
                         <% when 1 %>
                         <% type = "primary" %>
@@ -46,7 +46,7 @@
         <%= link_to "&laquo;".html_safe,
             if @page > 0 then orders_path(page: @page-1, anchor: "start") end %>
 
-        <% for i in 0..Order.count/8.ceil %>
+        <% for i in 0...Order.count/8.ceil %>
             <%=  link_to i+1, orders_path(page: i, anchor: "start"), class: "active" if current_class?(orders_path(page: @page))  %>
         <% end %>
 

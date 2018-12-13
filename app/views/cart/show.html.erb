@@ -1,30 +1,36 @@
-<!--<h1>Eu sou muito lindo</h1>
+<div class="bannerUserHome text-white">
+    <div class="h-100 container d-flex d-flex flex-column justify-content-between">
+        <%= render  "layouts/logo" %>
 
-<% @items.each do |meal| %>
-<p><%= meal.name %></p> 
-<%= link_to  "remover", remove_item_path(id: meal.id), method: :put %>
-<% end %>-->
-
-<%= render  "layouts/banner_home" %>
-
-<div class="container-fluid bg-warning p-1 mb-5">
-
+        <div class="mb-4">
+            <h1 class="h1_title">Bem-vindo, <%= current_user.name %>     <%=current_user.id%></h1>
+            <h3 class="h3_title">Neste espaço você pode finalizar o seu pedido.</h3>
+        </div>
+    </div>
 </div>
 
-<div class="container d-flex flex-column">
+<div class="container-fluid bg-warning p-1"></div>
+
+<% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+<% end %>
+
+
+<div class="container d-flex flex-column mt-5">
     <h2 class="h2_title mb-3 text-dark" style="font-size: 2.5em;">O seu pedido:</h2>
     <h4 class="h4_title text-secondary">Confira os itens pedidos antes de finalizar o pedido.</h4>
 </div>
 
-<%= current_user.id %>
-
-<% current_user.orders.each do |item| %>
-    <%= number_with_precision(item.price, precision: 2,
-                                    separator: ',', delimiter: '.') %>
-<% end %>
 
 <div class="container">
 
+    <% @items.each do |meal| %>
+    <p><%= meal.name %></p>
+    <%= link_to  "remover", remove_item_path(id: meal.id), method: :put %>
+    <% end %>
     <!-- itens dentro do carrinho -->
 
 </div>
@@ -54,6 +60,11 @@
 <div class="container">
     <h1 class="text-dark mb-3">Pedidos anteriores</h1>
 
+    <% current_user.orders.each do |item| %>
+    <%= number_with_precision(item.price, precision: 2,
+        separator: ',', delimiter: '.') %>
+
+    <% end %>
     <div class="container mt-4 mb-5 text-secondary d-flex flex-column">
         <table class="table">
             <thead class="thead">

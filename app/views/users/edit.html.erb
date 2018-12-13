@@ -11,7 +11,7 @@
 <div class="container">
     <h3 class="h3_edit_category text-muted mt-4">Editar usuário</h3>
     <hr>
-    
+
     <%= form_with model: @user, local: true, class: "text-secondary mb-5", :novalidate => 'novalidate' do |form| %>
 
         <div class="d-flex">
@@ -34,7 +34,7 @@
                 <input class="form-control" value="<%= @user.created_at.strftime("%d/%m/%Y") %>" disabled>
             </div>
         </div>
-        
+
         <%= form.submit "Atualizar usuário", class: "btn btn-success px-4" %>
         <%= link_to  "Voltar", users_path, class: "btn btn-secondary px-5 ml-3" %>
 
