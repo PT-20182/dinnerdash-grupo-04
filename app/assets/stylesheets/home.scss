@@ -5,12 +5,11 @@
 .imgRefeicoes {
     display: flex;
     align-items: flex-end;
-    background-image: url("miojo.png"); // Precisamos de uma forma mais raiz de setar essa imagem como default
+    background-image: url("miojo.png");
     background-size: cover;
     background-color: grey;
     height: 25vh;
     width: 100%;
-
 }
 
 .nameRefeicoes {

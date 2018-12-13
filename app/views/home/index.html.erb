@@ -53,16 +53,12 @@
 <div class="mb-3"></div>
 
 <div class="container d-flex d-flex flex-column">
-    <h2 class="h2_title mb-3 text-dark">Finalizou seu prato?</h3>
-    <h4 class="h4_title text-secondary">Confira os itens pedidos antes de finalizar o pedido</h5>
+    <h2 class="mb-3 text-dark" id="cart">Finalizou seu prato?</h2>
+    <p class="text-secondary">Confira os itens pedidos antes de finalizar o pedido</p>
 </div>
 
-<div class="container d-flex mb-5">
-    <div class="firstRow">
-
-        <!-- Items disponiveis no carrinho -->
-
-    </div>
+<div class="container mb-5">
+    <%= render "layouts/cart" %>
 </div>
 
 <div class="container"><hr class="border-bottom"></div>
