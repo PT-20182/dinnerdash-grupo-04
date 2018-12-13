@@ -40,4 +40,10 @@ class CartController < ApplicationController
 			redirect_to :root, alert: "Acesso Bloqueado!"
 		end
 	end
+
+	def check_user
+		if current_user.orders.blank? && set_cart.blank? 
+			redirect_to :root, alert: "Você precisa fazer pedidos antes de entrar!"
+		end
+	end
 end
