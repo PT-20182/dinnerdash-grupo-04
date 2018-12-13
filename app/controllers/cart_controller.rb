@@ -1,4 +1,6 @@
 class CartController < ApplicationController
+	before_action :check_user , only: [:show]
+
 	def show
 		@user = User.includes(:orders).find(current_user.id)
 		@meal_categories = MealCategory.all
@@ -31,5 +33,11 @@ class CartController < ApplicationController
 
 	def set_cart
 		session[:cart] ||= []
+	end
+
+	def check_user
+		unless user_signed_in?
+			redirect_to :root, alert: "Acesso Bloqueado!"
+		end
 	end
 end
