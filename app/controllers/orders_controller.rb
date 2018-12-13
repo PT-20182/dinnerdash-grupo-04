@@ -20,11 +20,9 @@ class OrdersController < ApplicationController
     
     if order.save
       session.delete(:cart)
-
-		  redirect_to :root
-    else
-      redirect_to cart_path
     end
+    
+    redirect_to cart_path
   end
 
   def edit

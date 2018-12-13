@@ -18,39 +18,77 @@
     <p class="alert alert-danger"><%= alert %></p>
 <% end %>
 
-
-<div class="container d-flex flex-column mt-5">
-    <h2 class="h2_title mb-3 text-dark" style="font-size: 2.5em;" id="cart">O seu pedido:</h2>
-    <p class="text-secondary">Confira os itens pedidos antes de finalizar o pedido</p>
-</div>
-
-
-<div class="container">
-
-    <%= render  "layouts/cart" %>
-
-</div>
-
-<div class="container mb-5"><hr class="border-top"></div>
-
-<div class="container d-flex flex-row justify-content-between mb-5">
-    <div class="d-flex flex-column mr-5">
-        <h2 class="h2_title mb-4 text-dark">Esqueceu algo?</h2>
-        <h4 class="h4_title text-secondary">
-            <%= link_to  "Clique aqui", root_path(), class: "text-primary" %>
-            para retornar ao nosso menu.
-        </h4>
+<% unless session[:cart].blank? %>
+    <div class="container d-flex flex-column mt-5">
+        <h2 class="h2_title mb-3 text-dark" style="font-size: 2.5em;" id="cart">O seu pedido:</h2>
+        <p class="text-secondary">Confira os itens pedidos antes de finalizar o pedido</p>
     </div>
 
-    <div class="d-flex flex-column ml-5">
-        <h2 class="h2_title mb-3">Preço total do pedido:
-            <span class="text-success">R$ <%= number_with_precision(@total_price, precision: 2, separator: ',', delimiter: '.') %></span>
-        </h2>
-        <%= link_to 'finalizar e pagar', orders_path(price: @total_price), method: :post,
-            class: 'btn btn-success text-white w-50'%>
-    </div>
-</div>
 
+    <div class="container">
+
+        <%= render  "layouts/cart" %>
+
+    </div>
+
+    <div class="container mb-5"><hr class="border-top"></div>
+
+    <div class="container d-flex flex-row justify-content-between mb-5">
+        <div class="d-flex flex-column mr-5">
+            <h2 class="h2_title mb-4 text-dark">Esqueceu algo?</h2>
+            <h4 class="h4_title text-secondary">
+                <%= link_to  "Clique aqui", root_path(), class: "text-primary" %>
+                para retornar ao nosso menu.
+            </h4>
+        </div>
+
+        <div class="d-flex flex-column ml-5">
+            <h2 class="h2_title mb-3">Preço total do pedido:
+                <span class="text-success">R$ <%= number_with_precision(@total_price, precision: 2, separator: ',', delimiter: '.') %></span>
+            </h2>
+            <%= link_to 'finalizar e pagar', orders_path(price: @total_price), method: :post,
+                class: 'btn btn-success text-white w-50'%>
+        </div>
+    </div>
+<% else %>
+    <div class="container d-flex flex-column mt-5">
+        <h2 class="h2_title mb-3 text-dark" style="font-size: 2.5em;" id="cart">Seu último pedido:</h2>
+        <p class="text-secondary">Aguarde seu pedido ser entregue</p>
+    </div>
+
+    <div class="container">
+
+        <% @last_items.in_groups_of(3, false).each do |group| %>
+    
+            <div class="mb-3 w-100 d-flex justify-content-between">
+                <% group.each do |meal| %>
+        
+                    <div class="<%= '' if group.last == meal %> w-50 d-flex justify-content-between">
+                        <div class="d-flex">
+                            <%= image_tag url_for(meal.image_attachment_path), class: "imageMealCart" %>
+        
+                            <div class="ml-2 d-flex flex-column justify-content-between">
+                                <h5 class="text-dark"><%= meal.name %></h5>
+                                
+                                <div class="text-secondary">
+                                    <!-- <p class="m-0">Quantidade: 2</p> -->
+                                    <p class="m-0">Preço unitário: R$ <%= number_with_precision(meal.price, 
+                                                                                                precision: 2, 
+                                                                                                separator: ',', 
+                                                                                                delimiter: '.' )%></p>
+                                    <!-- <p class="m-0">Preço total: X</p> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                <% end %>
+            </div>
+        
+        <% end %>
+
+    </div>
+<% end %>
 <div class="dropdown-divider mb-5 text-dark"></div>
 
 <div class="container">

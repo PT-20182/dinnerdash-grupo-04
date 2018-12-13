@@ -1,14 +1,16 @@
 class CartController < ApplicationController
 	def show
-		@items = Meal.find(set_cart)
 		@user = User.includes(:orders).find(current_user.id)
 		@meal_categories = MealCategory.all
-
+		
 		@total_price = 0
-
+		
+		@items = Meal.find(set_cart)
 		@items.each do |meal|
 			@total_price = @total_price + meal.price
 		end
+
+		@last_items = current_user.orders.last.meals
 	end
 
 	def add_item
