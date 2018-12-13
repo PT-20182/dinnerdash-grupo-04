@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :check_user_admin, except: [:create]
+  before_action :check_user_admin, except: [:create, :show]
   before_action :current_order, only: [:show, :edit, :update, :destroy]
 
   ORDERS_SIZE = 8
