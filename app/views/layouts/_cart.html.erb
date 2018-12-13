@@ -16,20 +16,18 @@
                         <h5 class="text-dark"><%= meal.name %></h5>
                         
                         <div class="text-secondary">
-                            <p class="m-0">Quantidade: 2</p> <!-- Modificar -->
+                            <!-- <p class="m-0">Quantidade: 2</p> -->
                             <p class="m-0">Preço unitário: R$ <%= number_with_precision(meal.price, 
                                                                                         precision: 2, 
                                                                                         separator: ',', 
                                                                                         delimiter: '.' )%></p>
-                            <p class="m-0">Preço total: X</p> <!-- Modificar -->
+                            <!-- <p class="m-0">Preço total: X</p> -->
                         </div>
                     </div>
                 </div>
 
-                <div class="text-secondary mr-3 d-flex flex-column justify-content-between">
-                    <label>Quantidade</label>
-
-                    <!-- Select -->
+                <div class="text-secondary mr-3 d-flex flex-column justify-content-end">
+                    <!-- <label>Quantidade</label> -->
 
                     <%= link_to  "remover pedido", remove_item_path(id: meal.id, anchor: "cart"), method: :put, class: "px-4 btn btn-outline-danger" %>
                 </div>

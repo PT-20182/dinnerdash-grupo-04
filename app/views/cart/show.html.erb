@@ -21,24 +21,20 @@
 
 <div class="container d-flex flex-column mt-5">
     <h2 class="h2_title mb-3 text-dark" style="font-size: 2.5em;">O seu pedido:</h2>
-    <h4 class="h4_title text-secondary">Confira os itens pedidos antes de finalizar o pedido.</h4>
+    <p class="text-secondary">Confira os itens pedidos antes de finalizar o pedido</p>
 </div>
 
 
 <div class="container">
 
-    <% @items.each do |meal| %>
-    <p><%= meal.name %></p>
-    <%= link_to  "remover", remove_item_path(id: meal.id), method: :put %>
-    <% end %>
-    <!-- itens dentro do carrinho -->
+    <%= render  "layouts/cart" %>
 
 </div>
 
 <div class="container mb-5"><hr class="border-top"></div>
 
-<div class="container d-flex flex-row mb-5">
-    <div class="container d-flex flex-column mr-5">
+<div class="container d-flex flex-row justify-content-between mb-5">
+    <div class="d-flex flex-column mr-5">
         <h2 class="h2_title mb-4 text-dark">Esqueceu algo?</h2>
         <h4 class="h4_title text-secondary">
             <%= link_to  "Clique aqui", root_path(), class: "text-primary" %>
@@ -46,7 +42,7 @@
         </h4>
     </div>
 
-    <div class="container d-flex flex-column ml-5">
+    <div class="d-flex flex-column ml-5">
         <h2 class="h2_title mb-3">Preço total do pedido:
             <!-- preco total -->
         </h2>
