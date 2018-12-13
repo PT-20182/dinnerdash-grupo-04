@@ -12,11 +12,11 @@
                 <h3 class="h3_title">Monte o seu prato, escolha
             <% else %>
                 <h1 class="h1_title">Monte seu prato</h1>
-                <h3 class="h3_title">Escolha
+                <h3 class="h3_title">Escolha suas refeições com base nas categorias: 
             <% end %>
-                    seu/sua <% @meal_categories.first(5).each do |cat| %>
-                        <%= cat.name.downcase + "," %>
-                        <% if cat == @meal_categories.first %> <br> <% end %>
+                    <% @meal_categories.first(5).each do |cat| %>
+                    <%= cat.name.downcase + "," %>
+                    <% if cat == @meal_categories.first %> <br> <% end %>
                     <% end %>
                 </h3>
 
