@@ -3,7 +3,7 @@
 <div class="container">
     <h3 class="h3_edit_category text-muted mt-4">Editar categoria de refeição</h3>
     <hr>
-    
+
     <%= form_with model: @meal_category, class: "text-secondary mb-5" do |form| %>
 
         <div class="d-flex">
@@ -17,7 +17,7 @@
                 <input class="form-control" value="<%= @meal_category.created_at.strftime("%d/%m/%Y") %>" disabled>
             </div>
         </div>
-        
+
         <%= form.submit "Atualizar categoria de refeição", class: "btn btn-success px-4" %>
         <%= link_to  "Voltar", meal_categories_path, class: "btn btn-secondary px-5 ml-3" %>
 
